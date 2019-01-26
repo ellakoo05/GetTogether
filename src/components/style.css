@@ -1,0 +1,210 @@
+#EventLeftSide {
+  font-family: 'Nunito';
+  background-color: white;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left:0;
+  top:0;
+}
+
+.eventForm {
+  text-align: left;
+  padding-left:60px;
+  padding-right:60px;
+}
+
+.EventInputs {
+  text-align: left;
+  border: solid 1px black;
+  width:95%;
+  height:10px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Nunito;
+}
+
+#partyButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border: solid 1px dimgray;
+  border-radius: 10px;
+  width: 40%;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#joinButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border: solid 1px dimgray;
+  border-radius: 10px;
+  width: 40%;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  top:0;
+}
+
+#eventCreate {
+  width: 600px;
+  height: 90%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  font-family: Nunito;
+}
+
+#rightSide {
+  height: 100vh;
+  width: 50vw;
+  right: 0;
+  top: 0;
+  background-size: cover;
+  position: absolute;
+}
+
+#joinBox {
+  width: 300px;
+  height: 330px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  font-family: Nunito;
+  text-align: left;
+}
+
+.vl {
+  border-left: 2px solid gray;
+  height: 100px;
+}
+
+@media only screen and (max-width: 500px){
+  #leftSide, .eventForm, #eventCreate {
+    position: relative;
+    width: 100%;
+    top:0;
+    left:0;
+  }
+  #rightSide {
+    position: relative;
+    width: 100%;
+    left:0;
+    bottom:0;
+  } 
+}
+
+  #leftSide {
+    background-image:url("../assets/balloon.png");
+    height: 100vh;
+    width: 50vw;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    position: absolute;
+  }
+  
+  .signupForm {
+    text-align: left;
+    padding-left: 15px;
+  }
+  
+  .inputs {
+    text-align: left;
+    border: none;
+    height:30px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Nunito;
+  }
+  
+  #signupButton {
+    font-size: 15px;
+    font-family: Nunito;
+    border: solid 1px dimgray;
+    border-radius: 10px;
+    width: 40%;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  #partyButton {
+    font-size: 15px;
+    font-family: Nunito;
+    border: solid 1px dimgray;
+    border-radius: 10px;
+    width: 40%;
+    height: 25px;
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin-bottom: 40px;
+  }
+  
+  #signupBox {
+    width: 300px;
+    height: 330px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+  }
+  
+  #rightSide {
+    font-family: 'Nunito';
+    background-color: white;
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    text-align: center;
+    color: dimgray;
+    right: 0;
+    top: 0;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    #leftSide {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    #rightSide {
+      position: relative;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+#welcomePopup {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: bisque;
+  color: dimgray;
+}
