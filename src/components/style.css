@@ -6,21 +6,21 @@
   position: absolute;
   text-align: center;
   color: black;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
 }
 
 .eventForm {
   text-align: left;
-  padding-left:60px;
-  padding-right:60px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .EventInputs {
   text-align: left;
   border: solid 1px black;
-  width:95%;
-  height:10px;
+  width: 95%;
+  height: 10px;
   padding: 10px;
   font-size: 14px;
   font-family: Nunito;
@@ -52,7 +52,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  top:0;
+  top: 0;
 }
 
 #eventCreate {
@@ -95,111 +95,177 @@
   height: 100px;
 }
 
-@media only screen and (max-width: 500px){
-  #leftSide, .eventForm, #eventCreate {
+@media only screen and (max-width: 500px) {
+  #leftSide,
+  .eventForm,
+  #eventCreate {
     position: relative;
     width: 100%;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
   }
   #rightSide {
     position: relative;
     width: 100%;
-    left:0;
-    bottom:0;
-  } 
+    left: 0;
+    bottom: 0;
+  }
 }
 
-  #leftSide {
-    background-image:url("../assets/balloon.png");
-    height: 100vh;
-    width: 50vw;
-    left: 0;
-    top: 0;
-    background-size: cover;
-    position: absolute;
-  }
-  
-  .signupForm {
-    text-align: left;
-    padding-left: 15px;
-  }
-  
-  .inputs {
-    text-align: left;
-    border: none;
-    height:30px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: Nunito;
-  }
-  
-  #signupButton {
-    font-size: 15px;
-    font-family: Nunito;
-    border: solid 1px dimgray;
-    border-radius: 10px;
-    width: 40%;
-    height: 25px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
+#leftSide {
+  background-image: url("../assets/balloon.png");
+  height: 100vh;
+  width: 50vw;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  position: absolute;
+}
 
-  #partyButton {
-    font-size: 15px;
-    font-family: Nunito;
-    border: solid 1px dimgray;
-    border-radius: 10px;
-    width: 40%;
-    height: 25px;
-    position: absolute;
-    margin: auto;
-    bottom: 0;
-    left:0;
-    right:0;
-    margin-bottom: 40px;
-  }
-  
-  #signupBox {
-    width: 300px;
-    height: 330px;
+#eventLeft {
+  height: 100vh;
+  width: 50vw;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+#eventInfo {
+  font-size: 26px;
+  margin: 50px;
+  text-align: left;
+}
+
+#map {
+  width: 450px;
+  height:250px;
+  background-color: #ded;
+  margin: auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
+  position: absolute;
+}
+
+#notes {
+  bottom:200px;
+  position: absolute;
+  left:0px;
+  right:0px;
+  font-size:26px;
+}
+
+#eventRight {
+  font-family: 'Nunito';
+  background-color: black;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: dimgray;
+  right: 0;
+  top: 0;
+}
+
+.signupForm {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.rows {
+  width:100%;
+  height:20vh;
+}
+
+.rowsText {
+  font-size: 24px;
+  color: black;
+  text-align: left;
+  padding: 40px;
+  padding-top: 60px;
+}
+
+.rows:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
+.inputs {
+  text-align: left;
+  border: none;
+  height: 30px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Nunito;
+}
+
+#signupButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border: solid 1px dimgray;
+  border-radius: 10px;
+  width: 40%;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#partyButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border: solid 1px dimgray;
+  border-radius: 10px;
+  width: 40%;
+  height: 25px;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 40px;
+}
+
+#signupBox {
+  width: 300px;
+  height: 330px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+}
+
+#rightSide {
+  font-family: 'Nunito';
+  background-color: white;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: dimgray;
+  right: 0;
+  top: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  #leftSide {
+    position: relative;
+    width: 100%;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    position: absolute;
   }
-  
   #rightSide {
-    font-family: 'Nunito';
-    background-color: white;
-    width: 50vw;
-    height: 100vh;
-    position: absolute;
-    text-align: center;
-    color: dimgray;
-    right: 0;
-    top: 0;
+    position: relative;
+    width: 100%;
+    left: 0;
+    bottom: 0;
   }
-  
-  @media only screen and (max-width: 500px) {
-    #leftSide {
-      position: relative;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
-    #rightSide {
-      position: relative;
-      width: 100%;
-      left: 0;
-      bottom: 0;
-    }
-  }
+}
 
 #welcomePopup {
   width: 100px;
@@ -207,4 +273,127 @@
   border-radius: 50px;
   background-color: bisque;
   color: dimgray;
+}
+
+body {}
+
+#title {
+  display: block;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+#anim {
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#titlewave {
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+#start {
+  display: block;
+  margin-top: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: 40px;
+  font-family: 'Nunito', sans-serif, bold;
+  font-size: 1.25em;
+  font-weight: 600;
+  border: 3px solid #333;
+  border-radius: 500px;
+}
+
+
+#login, #getStarted, #event, #eventForm, #register {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.formnames {
+  text-align: left;
+}
+
+.btn {
+  background-color: transparent;
+  color: #333;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+#middle {
+  width:100%;
+  bottom:0px;
+  position: absolute;
+}
+
+#container {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05em;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.col {
+  text-align: center;
+  display: inline-block;
+  margin: 20px;
+  width: 26%;
+}
+
+h3 {
+  text-align: center;
+}
+
+.icons {
+  width: 100px;
+  height: 100px;
+}
+
+#footer {
+  text-align: center;
+  color: #ccc;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 40px;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  left:0px;
+  position: absolute;
+  background-image: url(../assets/davidBG.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -1,25 +1,32 @@
 <?php
+session_start(); 
 
-try {
-    $conn = new PDO("mysql:host=tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=fvtmkfyz8ymzy8a1", "sbib1pmzgwmexs5g", "tk4m14h6yyt889va");
+$hostname = "tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"; 
+$username = "sbib1pmzgwmexs5g"; 
+$password = "tk4m14h6yyt889va";
+$dbname = "fvtmkfyz8ymzy8a1";
+$port = "3306";
+
+// Check connection
+$conn = mysqli_connect($hostname, $username, $password, $dbname, $port);
+// Check connection
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
 }
-catch(PDOException $e)
-{
-    echo "Error: " .$e->getMessage();
+else {
+$sql = "INSERT INTO events (eventname, eventdate, eventtime, eventlocation, eventend, eventenddate) VALUES ('{$_POST["eventname"]}','{$_POST["eventdate"]}','{$_POST["eventtime"]}','{$_POST["eventlocation"]}','{$_POST["eventend"]}','{$_POST["eventenddate"]}')";
 }
 
-$username=$_POST['username']
-$email =$_POST['email'];
-$password =$_POST['password'];
+$res2 = mysqli_query($conn,$sql);
 
-//$query = "SELECT * FROM users";
-$query = "SELECT * FROM users WHERE username='$username', email='$email' AND password='$password'";
+//if($res2 === TRUE){
+//echo "New record created successfully"; 
+//}
+//else{
+//echo "Insert failed"; 
+//};
 
-$result = $conn->query($query);
-if($result){
-$users = $result->fetchAll();
-echo json_encode($users);
-} else {
-    echo json_encode (false);
-}
+header("Location:http://localhost:8080/eventpage");
+exit;
+
 ?>

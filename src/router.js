@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import LoginPage from './views/LoginPage.vue'
 import UserSignUp from './views/SignupPage.vue'
 import Main from './views/MainPage.vue'
+import Event from './views/Event.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path:'/signuppage',
       name:'usersignup',
       component: UserSignUp
+    },
+    {
+      path:'/eventpage',
+      name:'eventpage',
+      component: Event
     },
     {
       path: '/about',
