@@ -5,7 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 Vue.prototype.store = {
-  globalName: "This is a global name"
+  user: 'user',
+  eventname: 'eventname'
 }
 
 new Vue({

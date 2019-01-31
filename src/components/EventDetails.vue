@@ -1,16 +1,23 @@
 <template>
 <div id="event">
     <div id="eventLeft">
-      <div id="eventInfo">
-        Scrum Meeting<br/>
-        January 29th, 2018<br/>
-        4:00 PM<br/>
-        Room 113<br/>
+      <div id="eventInfo" v-for="item in event">
+<!--
+        <button @click="ShowName">name</button>
+        <button @click="ShowEvents">events</button>
+        <div>{{user[0].username}}</div>
+-->
+        <div >{{item.eventname}}</div><br/>
+        <div >{{item.eventdate}}</div><br/>
+        <div >{{item.eventtime}}</div><br/>
+        <div >{{item.eventlocation}}</div><br/>
   </div>
+<!--
       <div id="map">Map component</div>
       <div id="notes">
         *Scrum Meeting with Henry!*
   </div>
+-->
   </div>
     <div id="eventRight">
       <div class="rows" style="background-color:gold;"><div class="rowsText">Front-End</div></div>
@@ -28,4 +35,23 @@
 </style>
 
 <script>
+  export default {
+    name: "eventDetails",
+    data() {
+      return {
+        event: "",
+        eventname: "",
+        eventdate: "",
+        eventtime: "",
+        eventlocation: "",
+      }
+    },
+    methods: {},
+    beforeCreate: async function() {
+      var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/selectEvent.php");
+      var json = await resp.json();
+      this.event = json;
+      console.log(json);
+    },
+  }
 </script>
