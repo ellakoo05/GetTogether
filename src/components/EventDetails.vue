@@ -2,11 +2,6 @@
 <div id="event">
     <div id="eventLeft">
       <div id="eventInfo" v-for="item in event">
-<!--
-        <button @click="ShowName">name</button>
-        <button @click="ShowEvents">events</button>
-        <div>{{user[0].username}}</div>
--->
         <div >{{item.eventname}}</div><br/>
         <div >{{item.eventdate}}</div><br/>
         <div >{{item.eventtime}}</div><br/>
