@@ -1,0 +1,81 @@
+body{
+  font-family: 'Nunito';
+}
+
+
+#done{
+  display: block;
+  margin-top: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: 40px;
+  font-family: 'Nunito', sans-serif, bold;
+  font-size: 1.15em;
+  font-weight: 600;
+  border: 3px solid #333;
+  border-radius: 500px;
+}
+
+.btn {
+  background-color: transparent;
+  color: #333;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+
+
+#rightSide {
+  font-family: 'Nunito';
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: dimgray;
+  right: 0;
+  top: 35px;
+}
+
+#eventCreate {
+  width: 600px;
+  height: 90%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  font-family: Nunito;
+}
+
+#EventLeftSide {
+  font-family: 'Nunito';
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: black;
+  left: 0;
+  top: 0;
+}
+
+#eventLeft {
+  height: 100vh;
+  width: 50vw;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.eventForm {
+  text-align: left;
+  padding-left: 60px;
+  padding-right: 60px;
+}

@@ -314,6 +314,8 @@ body {}
 }
 
 
+
+
 #login, #getStarted, #event, #eventForm, #register {
 	opacity: 1;
 	animation-name: fadeInOpacity;
