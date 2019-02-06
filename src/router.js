@@ -5,6 +5,7 @@ import LoginPage from './views/LoginPage.vue'
 import UserSignUp from './views/SignupPage.vue'
 import Main from './views/MainPage.vue'
 import Event from './views/Event.vue'
+import Edit from './views/EditPage.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       component: Main
     },
     {
+      path:'/editpage',
+      name:'editpage',
+      component: Edit
+    },
+    {
       path:'/signuppage',
       name:'usersignup',
       component: UserSignUp
@@ -44,6 +50,6 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    },
   ]
 })
