@@ -6,7 +6,11 @@ import store from './store'
 Vue.config.productionTip = false
 Vue.prototype.store = {
   user: 'user',
-  eventname: 'eventname'
+  userID: '',
+  eventID: '',
+  eventname: '',
+  eventlocation: '',
+  eventdate: '',
 }
 
 new Vue({

@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import LoginPage from './views/LoginPage.vue'
-import UserSignUp from './views/SignupPage.vue'
-import Main from './views/MainPage.vue'
-import Event from './views/Event.vue'
-import Edit from './views/EditPage.vue'
+import LoginForm from './components/LoginForm.vue'
+import UserSignUp from './components/UserSignup.vue'
+import EventForm from './components/EventForm.vue'
+import EventDetails from './components/EventDetails.vue'
+import EditEvent from './components/EditEvent.vue'
+import Dashboard from './components/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -21,17 +22,17 @@ export default new Router({
     {
       path:'/loginpage',
       name:'loginpage',
-      component: LoginPage
+      component: LoginForm
     },
     {
       path:'/mainpage',
       name:'mainpage',
-      component: Main
+      component: EventForm
     },
     {
       path:'/editpage',
       name:'editpage',
-      component: Edit
+      component: EditEvent
     },
     {
       path:'/signuppage',
@@ -39,9 +40,14 @@ export default new Router({
       component: UserSignUp
     },
     {
+      path:'/dashboard',
+      name:'Dashboard',
+      component: Dashboard
+    },
+    {
       path:'/eventpage',
       name:'eventpage',
-      component: Event
+      component: EventDetails
     },
     {
       path: '/about',
