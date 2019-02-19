@@ -67,11 +67,6 @@
             sessionStorage.setItem("email", json.email);
 
             this.$router.push('mainpage');
-
-
-            // Retrieve
-            //            document.getElementById("result").innerHTML = sessionStorage.getItem("username", "userID");
-
           }
 
         } else {
