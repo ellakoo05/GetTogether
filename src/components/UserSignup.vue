@@ -1,6 +1,8 @@
 <template>
 <div id="register">
-    <div id="leftSide"></div>
+<div class="container">
+    <div class="row">
+    <div id="leftSide" class="col-lg-6"></div>
     <div id="rightSide">
       <div id="signupBox">
         <h2>Sign Up</h2>
@@ -10,15 +12,18 @@
           <input type="text" name="email" class="inputs" placeholder="email" v-model="email">
           <input type="password" name="password" class="inputs" placeholder="password" v-model="password">
           <input type="password" name="cfpassword" class="inputs" placeholder="confirm password">
-          <router-link tag="button" to="/mainpage" @click.native="insertUser" id="signupButton" type="submit">sign up</router-link>
+          <button @click="insertUser" id="signupButton">sign up</button>
         </div>
       </div>
     </div>
+  </div>
+  </div>
     </div>
 </template>
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Nunito");
+  @import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
   @import './style.css';
 </style>
 
@@ -51,11 +56,16 @@
           return resp.json;
         }).then((json) => {
           if (json) {
-            alert("hi")
+            this.$router.push('loginpage');
           }
-        })
+        });
+        if (typeof(Storage) !== "undefined") {
+          // Store
+          sessionStorage.setItem("username", this.username);
+          // Retrieve
+          document.getElementById("result").innerHTML = sessionStorage.getItem("username");
+        }
       }
-    }
+    },
   }
 </script>
-

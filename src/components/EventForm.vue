@@ -20,7 +20,7 @@
           <input type="time" name="eventtime" v-model="eventtime" class="EventInputs" placeholder="start time" style="width:40%"/><br/><br/>
           <input type="date" name="eventenddate" v-model="eventenddate" class="EventInputs" placeholder="end date" style="width:40%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="time" name="eventend" v-model="eventend" class="EventInputs" placeholder="end time" style="width:40%"/>
-          <router-link tag="button" to="/eventpage" @click.native="insertEvent" type="submit" id="partyButton">Let's Party!</router-link>
+          <button @click="insertEvent" id="partyButton">Let's Party!</button>
         </div>
       </div>
     </div>
@@ -30,8 +30,8 @@
       <div id="joinBox">
         <h3 style="padding-top:10px; padding-left:15px; color:black;" class="formnames">event code</h3>
         <form class="signupForm" method="get" id="join">
-          <input type="text" name="eventCode" class="EventInputs" placeholder="enter event code...">
-          <router-link to="/eventpage" tag="button" id="joinButton">join event</router-link>
+          <input type="text" name="eventCode" class="EventInputs" placeholder="enter event code..." v-model="eventCode">
+          <router-link to="/eventpage" @click.native="joinEvent" tag="button" id="joinButton">join event</router-link>
         </form>
         </div>
       </div>
@@ -45,7 +45,6 @@
 </style>
 
 <script>
-
   export default {
     data() {
       return {
@@ -55,11 +54,25 @@
         eventenddate: "",
         eventtime: "",
         eventend: "",
-        page: 0
+        page: 0,
+        eventCode: "",
       }
     },
     methods: {
       insertEvent: async function() {
+        var generatedEventCode = '';
+
+        //generatedEventCode = randomly generated event code
+        for (var i = 0; i < 6; i++) {
+          var t =
+            Math.round(
+              Math.random() * 9)
+          generatedEventCode += t
+        }
+
+        //store generatedEventCode in sessionStorage
+        sessionStorage.setItem("eventCode", generatedEventCode);
+
         var eventForm = new FormData();
         eventForm.append("eventname", this.eventname);
         eventForm.append("eventdate", this.eventdate);
@@ -67,14 +80,30 @@
         eventForm.append("eventenddate", this.eventenddate);
         eventForm.append("eventtime", this.eventtime);
         eventForm.append("eventend", this.eventend);
-        await fetch("https://gettogetherbcit.herokuapp.com/mysql/insertEvents.php", {
+        eventForm.append("eventCode", generatedEventCode);
+
+        var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/insertEvents.php", {
           method: "POST",
           body: eventForm
+        })
+
+        this.$router.push('eventpage');
+      },
+      joinEvent: async function() {
+        var joinForm = new FormData();
+        joinForm.append("userID", sessionStorage.getItem("userID"));
+        joinForm.append("eventCode", this.eventCode);
+        console.log;
+        sessionStorage.setItem("eventCode", this.eventCode);
+
+        await fetch("https://gettogetherbcit.herokuapp.com/mysql/joinEvent.php", {
+          method: "POST",
+          body: joinForm
         }).then((resp) => {
           return resp.json;
         }).then((json) => {
           if (json) {
-            alert("hi")
+            this.$router.push('eventpage');
           }
         })
       }

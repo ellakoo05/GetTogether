@@ -55,26 +55,12 @@
   top: 0;
 }
 
-#eventCreate {
-  width: 600px;
-  height: 90%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  position: absolute;
-  text-align: center;
-  font-family: Nunito;
-}
 
 #rightSide {
   height: 100vh;
-  width: 50vw;
   right: 0;
-  top: 0;
   background-size: cover;
-  position: absolute;
+  position: fixed;
 }
 
 #joinBox {
@@ -105,21 +91,15 @@
     left: 0;
   }
   #rightSide {
-    position: relative;
-    width: 100%;
-    left: 0;
-    bottom: 0;
   }
 }
 
 #leftSide {
   background-image: url("../assets/balloon.png");
   height: 100vh;
-  width: 50vw;
-  left: 0;
-  top: 0;
   background-size: cover;
-  position: absolute;
+  position: fixed;
+  left:0px;
 }
 
 #eventLeft {
@@ -138,27 +118,68 @@
 
 #map {
   width: 450px;
-  height:250px;
+  height: 250px;
   background-color: #ded;
   margin: auto;
-  left:0;
-  right:0;
-  top:0;
+  left: 0;
+  right: 0;
+  top: 0;
   bottom: 0;
   position: absolute;
 }
 
 #notes {
-  bottom:200px;
+  bottom: 200px;
   position: absolute;
-  left:0px;
-  right:0px;
-  font-size:26px;
+  left: 0px;
+  right: 0px;
+  font-size: 26px;
+}
+
+#taskbutton {
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  margin: auto;
+  margin: 10px;
+}
+
+#addtask {
+  background-color: linen;
+  height: 400px;
+  width: 400px;
+  margin: auto;
+  position: relative;
+  margin-top: auto;
 }
 
 #eventRight {
   font-family: 'Nunito';
-  background-color: black;
+  background-color: antiquewhite;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: dimgray;
+  right: 0;
+  top: 0;
+}
+
+#addingTask {
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  left:0px;
+  right:0px;
+  bottom: 0px;
+  width:300px;
+  height:200px;
+}
+#eventRight2 {
+  font-family: 'Nunito';
+  background-color: white;
   width: 50vw;
   height: 100vh;
   position: absolute;
@@ -174,8 +195,8 @@
 }
 
 .rows {
-  width:100%;
-  height:20vh;
+  width: 100%;
+  height: 20vh;
 }
 
 .rowsText {
@@ -301,36 +322,82 @@ body {}
 
 #start {
   display: block;
-  margin-top: 170px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10%;
-  height: 40px;
   font-family: 'Nunito', sans-serif, bold;
   font-size: 1.25em;
   font-weight: 600;
   border: 3px solid #333;
   border-radius: 500px;
+  margin: auto;
 }
 
-
-
-
-#login, #getStarted, #event, #eventForm, #register {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	animation-duration: 1s;
+#login,
+#getStarted,
+#event,
+#eventForm,
+#register {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#rightCol {
+  width: 20vw;
+  height: 100vh;
+  background-color: seashell;
+  right: 0px;
+  top: 0px;
+  position: fixed;
+  -webkit-animation: mymove 0.8s linear;
+  /* Safari 4.0 - 8.0 */
+  animation: mymove 0.8s linear;
+  display: block;
+}
+
+@-webkit-keyframes mymove {
+  from {
+    right: -100px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@keyframes mymove {
+  from {
+    right: -100px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@-webkit-keyframes myNewmove {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -260px;
+  }
+}
+
+@keyframes myNewmove {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -260px;
+  }
 }
 
 .formnames {
@@ -350,8 +417,8 @@ body {}
 }
 
 #middle {
-  width:100%;
-  bottom:0px;
+  width: 100%;
+  bottom: 0px;
   position: absolute;
 }
 
@@ -363,12 +430,6 @@ body {}
   padding-right: 20px;
 }
 
-.col {
-  text-align: center;
-  display: inline-block;
-  margin: 20px;
-  width: 26%;
-}
 
 h3 {
   text-align: center;
@@ -387,36 +448,26 @@ h3 {
 }
 
 #wrapper {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  right: 0;
-  top: 0;
-  bottom:0;
-  left:0px;
-  position: absolute;
   background-image: url(../assets/davidBG.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-body{
+body {
   font-family: 'Nunito';
 }
 
-
-#done{
+#done {
   display: block;
-  margin-top: 750px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10%;
+  width: 100px;
   height: 40px;
   font-family: 'Nunito', sans-serif, bold;
-  font-size: 1.15em;
+  font-size: 1em;
   font-weight: 600;
   border: 3px solid #333;
   border-radius: 500px;
+  margin: auto;
+  margin-top:30px;
 }
 
 .btn {
@@ -426,12 +477,14 @@ body{
   transition: 0.3s;
 }
 
+.colSection {
+  text-align: center;
+}
+
 .btn:hover {
   background-color: #333;
   color: white;
 }
-
-
 
 #rightSide {
   font-family: 'Nunito';
@@ -446,13 +499,8 @@ body{
 
 #eventCreate {
   width: 600px;
-  height: 90%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   margin: auto;
-  position: absolute;
+  padding: 20px;
   text-align: center;
   font-family: Nunito;
 }
