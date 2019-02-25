@@ -22,12 +22,13 @@
   </div>
       <div class="col-lg-4 colSection">
         <h3>Assign party members with tasks and watch the party plan itself</h3>
-        <br>
+        <br/>
+        <br/>
         <img class="icons" src="../assets/svg/magic-wand.png" alt="magic"/>
   </div>
       <div class="col-lg-4 colSection">
         <h3>Chat and check off tasks as you complete them</h3>
-        <br>
+        <br/><br/><br/>
         <img class="icons" src="../assets/svg/list.png" alt="list">
   </div>
       </div>

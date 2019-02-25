@@ -4,6 +4,7 @@
       <div class="row">
       <div id="eventCreate">
         <h2 id="pageTitle">{{eventname}}</h2>
+<!--
         <div class="eventForm">
           <h3 class="formnames">Basics</h3>
           <input type="text" name="eventname" class="EventInputs" placeholder="Event Name" v-model="eventname"><br/><br/>
@@ -23,6 +24,15 @@
           <input type="time" name="eventend" v-model="eventend" class="EventInputs" placeholder="end time" style="width:40%"/>
               <button id="done" class="btn">Done</button>
         </div>
+-->
+              <div id="addingTask">
+        <h2>Add Tasks</h2>
+        <input type="text" placeholder="task title" v-model="tasks"/>
+        <button @click="InsertTask">Add</button>
+        <div v-for="item in newTasks">
+          <div>{{item.tasks}}</div>
+  </div>
+</div>
       </div>
     </div>
   </div>
@@ -33,6 +43,7 @@
   @import url("https://fonts.googleapis.com/css?family=Nunito");
   @import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
   @import './style.css';
+
 </style>
 
 <script>
@@ -44,7 +55,7 @@
         tasks: "",
       }
     },
-    methods: {
-    }
+    methods: {}
   }
+
 </script>
