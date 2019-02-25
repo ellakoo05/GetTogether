@@ -7,6 +7,7 @@ import EventForm from './components/EventForm.vue'
 import EventDetails from './components/EventDetails.vue'
 import EditEvent from './components/EditEvent.vue'
 import Dashboard from './components/Dashboard.vue'
+import Chat from './components/groupChat.vue'
 
 Vue.use(Router)
 
@@ -20,33 +21,38 @@ export default new Router({
       component: Home
     },
     {
-      path:'/loginpage',
-      name:'loginpage',
+      path: '/loginpage',
+      name: 'loginpage',
       component: LoginForm
     },
     {
-      path:'/mainpage',
-      name:'mainpage',
+      path: '/mainpage',
+      name: 'mainpage',
       component: EventForm
     },
     {
-      path:'/editpage',
-      name:'editpage',
+      path: '/editpage',
+      name: 'editpage',
       component: EditEvent
     },
     {
-      path:'/signuppage',
-      name:'usersignup',
+      path: '/signuppage',
+      name: 'usersignup',
       component: UserSignUp
     },
     {
-      path:'/dashboard',
-      name:'Dashboard',
+      path: '/dashboard',
+      name: 'Dashboard',
       component: Dashboard
     },
     {
-      path:'/eventpage',
-      name:'eventpage',
+      path: '/chat',
+      name: 'chat',
+      component: Chat
+    },
+    {
+      path: '/eventpage',
+      name: 'eventpage',
       component: EventDetails
     },
     {
@@ -55,7 +61,8 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () =>
+        import ( /* webpackChunkName: "about" */ './views/About.vue')
     },
   ]
 })

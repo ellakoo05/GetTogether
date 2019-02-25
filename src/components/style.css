@@ -55,7 +55,6 @@
   top: 0;
 }
 
-
 #rightSide {
   height: 100vh;
   right: 0;
@@ -90,8 +89,7 @@
     top: 0;
     left: 0;
   }
-  #rightSide {
-  }
+  #rightSide {}
 }
 
 #leftSide {
@@ -99,7 +97,7 @@
   height: 100vh;
   background-size: cover;
   position: fixed;
-  left:0px;
+  left: 0px;
 }
 
 #eventLeft {
@@ -171,12 +169,13 @@
   margin: auto;
   position: absolute;
   top: 0px;
-  left:0px;
-  right:0px;
+  left: 0px;
+  right: 0px;
   bottom: 0px;
-  width:300px;
-  height:200px;
+  width: 300px;
+  height: 200px;
 }
+
 #eventRight2 {
   font-family: 'Nunito';
   background-color: white;
@@ -430,7 +429,6 @@ body {}
   padding-right: 20px;
 }
 
-
 h3 {
   text-align: center;
 }
@@ -467,7 +465,7 @@ body {
   border: 3px solid #333;
   border-radius: 500px;
   margin: auto;
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 .btn {
@@ -528,4 +526,272 @@ body {
   text-align: left;
   padding-left: 60px;
   padding-right: 60px;
+}
+
+html {
+  margin: 0;
+}
+
+h2 {
+  padding-left: 60px;
+  padding-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#banner {
+  margin: 0;
+  background-color: #38a3ff;
+  text-align: center;
+  height: 70px;
+  color: white;
+}
+
+#events {
+  width: 70vw;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+#createNew {
+  color: #7c7c7c;
+  margin: auto;
+}
+
+.eventTile {
+  display: inline-block;
+  margin: 25px;
+  width: 300px;
+  height: 150px;
+  background-color: white;
+}
+
+body{
+  font-family: 'Nunito';
+}
+#save{
+  font-family: 'Nunito';
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 350px;
+  margin-left: 150px;
+  
+  
+}
+
+#tasks{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 25vw;
+  height: 100vh;
+  
+}
+
+#msgs{
+  position: absolute;
+  right: 0;
+  top:0;
+  width: 75vw;
+  height: 100vh;
+  
+}
+
+h1{
+  padding-left: 20px;
+}
+
+/*tasks*/
+h2{
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #36a4f4;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+#myInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+/*msgs*/
+h1{
+  text-align: center;
+}
+
+#topbar{
+  margin: 0;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+}
+
+hr{
+  margin-top: 780px; 
+}
+#TextInput{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 90vw;
+  height: 20px;
+  padding: 5px;
+}
+
+#type{
+  margin: 0;
+  border: 1px solid lightgray;
+  border-radius: 500px;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  
+}
+
+#goDashboard {
+  width: 120px;
+  height: 30px;
+  background-color: skyblue;
+  position: absolute;
+  right: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+#goBack {
+  width: 120px;
+  height: 30px;
+  background-color: lightgray;
+  position: absolute;
+  left: 50px;
+  top: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+#deleteEvent {
+  width: 120px;
+  height: 30px;
+  background-color: lightgray;
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+#send{
+  width: 25px;
+  height: 25px;
+  padding: 5px;
 }

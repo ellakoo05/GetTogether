@@ -25,14 +25,15 @@
       </div>
     </div>
     <div id="rightSide" class="vl">
+      <div id="goDashboard" @click="goToDashboard">DASHBOARD</div>
       <div id="eventCreate">
         <h2>join</h2>
       <div id="joinBox">
         <h3 style="padding-top:10px; padding-left:15px; color:black;" class="formnames">event code</h3>
-        <form class="signupForm" method="get" id="join">
+        <div class="signupForm" id="join">
           <input type="text" name="eventCode" class="EventInputs" placeholder="enter event code..." v-model="eventCode">
-          <router-link to="/eventpage" @click.native="joinEvent" tag="button" id="joinButton">join event</router-link>
-        </form>
+          <button @click="joinEvent" id="joinButton">join event</button>
+        </div>
         </div>
       </div>
     </div>
@@ -56,9 +57,14 @@
         eventend: "",
         page: 0,
         eventCode: "",
+        userID: this.store.userID,
       }
     },
     methods: {
+      goToDashboard: function() {
+        this.$router.push('dashboard');
+      },
+
       insertEvent: async function() {
         var generatedEventCode = '';
 
@@ -81,13 +87,19 @@
         eventForm.append("eventtime", this.eventtime);
         eventForm.append("eventend", this.eventend);
         eventForm.append("eventCode", generatedEventCode);
+        eventForm.append("userID", sessionStorage.getItem("userID"));
 
         var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/insertEvents.php", {
           method: "POST",
           body: eventForm
         })
 
-        this.$router.push('eventpage');
+        var json = await resp.json();
+        if (json) {
+          this.$router.push('eventpage');
+        } else {
+          alert("Create Failed. Try Again")
+        }
       },
       joinEvent: async function() {
         var joinForm = new FormData();
@@ -96,16 +108,18 @@
         console.log;
         sessionStorage.setItem("eventCode", this.eventCode);
 
-        await fetch("https://gettogetherbcit.herokuapp.com/mysql/joinEvent.php", {
+
+        var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/joinEvent.php", {
           method: "POST",
           body: joinForm
-        }).then((resp) => {
-          return resp.json;
-        }).then((json) => {
-          if (json) {
-            this.$router.push('eventpage');
-          }
         })
+
+        var json = await resp.json();
+        if (json) {
+          this.$router.push('eventpage');
+        } else {
+          alert("NO!");
+        }
       }
     }
   }

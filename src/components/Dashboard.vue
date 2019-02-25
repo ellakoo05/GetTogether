@@ -1,16 +1,29 @@
 <template>
 <div id="Dashboard">
-  <div v-for="item in dashboardList">
-    <div>{{item.eventname}}</div>
-    <div>{{item.eventdate}}</div>
-    <div>{{item.eventlocation}}</div>
+  <div id="banner">
+    <div class="col-sm-2" style="padding:10px; margin:auto">
+      <img src="../assets/title.png" width="100%"/>
+      </div>
+          <div id="goBack" @click="goBack">GO BACK</div>
   </div>
-</div>
+    <h2>Your Events</h2>
+  
+  <div id="events">
+    <div class="eventTile" v-for="item in dashboardList">
+      <h3 @click="goToEvent(item.eventCode)">{{item.eventname}}</h3>
+    </div>
+    <div class="eventTile">
+      <h3 id="createNew" @click="createNew">Create New...</h3>
+    </div>
+  </div>
+  </div>
 </template>
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Nunito");
   @import './style.css';
+  @import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
+
 </style>
 
 <script>
@@ -21,7 +34,18 @@
         dashboardList: "",
       }
     },
-    methods: {},
+    methods: {
+      goBack: function() {
+        this.$router.push('mainpage');
+      },
+      createNew: function() {
+        this.$router.push('mainpage');
+      },
+      goToEvent: function(eventCode) {
+        sessionStorage.setItem("eventCode", eventCode);
+        this.$router.push('eventpage');
+      }
+    },
     beforeCreate: async function() {
       //      var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/getJoinedEvents.php");
       //      var json = await resp.json();
@@ -41,4 +65,5 @@
       this.dashboardList = json;
     },
   }
+
 </script>
