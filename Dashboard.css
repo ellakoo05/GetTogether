@@ -1,52 +1,35 @@
-html{
-  margin:0;
-}
-
 body{
   font-family: 'Nunito';
-  margin: 0;
-}
-
-h2{
-  padding-left: 60px;
-  padding-top: 30px;
-}
-
-a{
-  text-decoration: none;
-  color: black;
 }
 
 #banner{
   margin: 0;
   background-color: #38a3ff;
   text-align: center;
-  height: 50px;
-  color: white;
+  height: auto;
+  padding: 10px;
 }
 
-#events{
-  width: 70vw;
-  height: 100vh;
-  background-color: #f2f2f2;
+#new{
   text-align: center;
-  margin: auto;
-  left: 0;
-  right: 0;
+  margin: 50px;
 }
 
-#createNew{
-  color: #7c7c7c;
-  margin: auto;
-  
+h2{
+  text-align: center;
+  margin: 30px;
+  font-weight: 600;
+}
+#title{
+  width: 200px;
 }
 
-.eventTile{
-  display: inline-block;
-  margin: 25px;
-  width: 300px;
-  height: 150px;
-  background-color: white;
-
+.container{
+  background-color: rgba(106, 106, 106, 0.22);
 }
 
+.col{
+  height: 70px;
+  background-color: skyblue;
+  margin: 18px;
+}

@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="Dashboard.css">
-</head>
-<body>
-  <div id="banner">
-    <h1>GetTogether</h1>
-  </div>
-  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="Dashboard.css">
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+   <div id="banner">
+    <img id="title" src="./src/assets/title.png" alt="GetTogether">
+    </div>
+    
     <h2>Your Events</h2>
-  
-  
-  <div id="events">
-   <a href="#">
-    <div class="eventTile">
-      <h3>Dejan's Birthday Dinner</h3>
+    
+   <div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      Event one
     </div>
-    </a>
-    <a href="#">
-    <div class="eventTile">
-      <h3>Ella's Bridal Shower</h3>
+    <div class="col">
+      Event two
     </div>
-    </a>
-    <a href="#">
-    <div class="eventTile">
-      <h3>Nathan's Baby Shower</h3>
+    <div class="col">
+      Event three
     </div>
-    </a>
-    <a href="#">
-    <div class="eventTile">
-      <h3 id="createNew">Create New...</h3>
-    </div>
-    </a>
   </div>
-</body>
+  
+  <div class="text-center">
+      <button id="new" type="button" class="btn btn-secondary btn-lg">Create New</button>
+    </div>
+    
+  </div>
+  
+  </body>
 </html>
