@@ -7,17 +7,12 @@
         <div >{{item.eventtime}}</div><br/>
         <div >{{item.eventlocation}}</div><br/>
   </div>
-      <div id="deleteEvent" @click="deleteEvent">DELETE</div>
+      <button id="deleteEvent" @click="deleteEvent">DELETE</button>
+      <button id="goToDashboard" @click="goToDashboard" >DASHBOARD</button>
+      <button id="editEvent" @click="goEdit" >EDIT EVENT</button>
   </div>
     <div id="eventRight">
-<!--
-      <div class="rows" style="background-color:gold;"><div class="rowsText"></div></div>
-      <div class="rows" style="background-color:orange;"><div class="rowsText"></div></div>
-      <div class="rows" style="background-color:darkorange;"><div class="rowsText"></div></div>
-      <div class="rows" style="background-color:red;"><div class="rowsText"></div></div>
-      <div class="rows" style="background-color:darkred;"><div class="rowsText"></div></div>
--->
-              <div v-for="item in newTasks">
+      <div id="newItems" v-for="item in newTasks">
           <div>{{item.tasks}}</div>
   </div>
   </div>
@@ -50,10 +45,17 @@
         tasks: "",
         newTasks: "",
         isAdmin: false,
-        text: ''
+        text: '',
+        taskID: this.store.taskID,
       }
     },
     methods: {
+      goToDashboard: function() {
+        this.$router.push('dashboard');
+      },
+      goEdit: function() {
+        this.$router.push('editpage');
+      },
       deleteEvent: async function() {
         this.$swal({
           title: 'Are you sure?',
@@ -82,20 +84,6 @@
           }
         })
       },
-      InsertTask: async function() {
-        var taskForm = new FormData();
-        taskForm.append("tasks", this.tasks);
-        taskForm.append("eventCode", sessionStorage.getItem("eventCode"));
-        console.log(sessionStorage.getItem("eventCode"));
-
-        var resp = await fetch("https://gettogetherbcit.herokuapp.com/mysql/insertTasks.php", {
-          method: "POST",
-          body: taskForm
-        })
-        var json = await resp.json();
-
-        //console.log(json);
-      }
     },
     beforeCreate: async function() {
       var eventForm = new FormData();
@@ -108,7 +96,7 @@
 
       var json = await resp.json();
       this.event = json;
-      debugger;
+
       if (json) {
         this.store.eventID = json[0].id;
         this.store.eventname = json[0].eventname;
@@ -116,7 +104,7 @@
 
         var temp = sessionStorage.getItem("userID");
         var temp2 = json[0].admin;
-        debugger;
+
         if (sessionStorage.getItem("userID") === json[0].admin) {
           this.isAdmin = true;
         } else {

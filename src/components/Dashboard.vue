@@ -4,7 +4,7 @@
     <div class="col-sm-2" style="padding:10px; margin:auto">
       <img src="../assets/title.png" width="100%"/>
       </div>
-          <div id="goBack" @click="goBack">GO BACK</div>
+          <button id="goBack" @click="goBack">GO BACK</button>
   </div>
     <h2>Your Events</h2>
   

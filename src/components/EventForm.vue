@@ -25,7 +25,7 @@
       </div>
     </div>
     <div id="rightSide" class="vl">
-      <div id="goDashboard" @click="goToDashboard">DASHBOARD</div>
+      <button id="goDashboard" @click="goToDashboard">DASHBOARD</button>
       <div id="eventCreate">
         <h2>join</h2>
       <div id="joinBox">
@@ -96,6 +96,9 @@
 
         var json = await resp.json();
         if (json) {
+          this.eventCode = generatedEventCode;
+          debugger;
+          this.joinEvent();
           this.$router.push('eventpage');
         } else {
           alert("Create Failed. Try Again")

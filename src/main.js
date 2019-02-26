@@ -13,6 +13,7 @@ Vue.prototype.store = {
   eventname: '',
   eventlocation: '',
   eventdate: '',
+  taskID: null
 }
 
 new Vue({

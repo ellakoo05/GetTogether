@@ -144,22 +144,14 @@
   margin: 10px;
 }
 
-#addtask {
-  background-color: linen;
-  height: 400px;
-  width: 400px;
-  margin: auto;
-  position: relative;
-  margin-top: auto;
-}
 
 #eventRight {
   font-family: 'Nunito';
-  background-color: antiquewhite;
+  background-color: rgba(0,0,0,0.1);
   width: 50vw;
   height: 100vh;
   position: absolute;
-  text-align: center;
+  text-align: left;
   color: dimgray;
   right: 0;
   top: 0;
@@ -350,6 +342,9 @@ body {}
   }
 }
 
+li {
+  list-style: none;
+}
 #rightCol {
   width: 20vw;
   height: 100vh;
@@ -583,19 +578,20 @@ body{
   color: #555;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 350px;
-  margin-left: 150px;
-  
-  
 }
 
+#newItems {
+  font-size: 26px;
+  font-weight: bold;
+  margin-left: 20px;
+}
 #tasks{
   position: absolute;
-  left:0;
+  right:0;
   top:0;
   width: 25vw;
   height: 100vh;
-  
+  text-align: center;
 }
 
 #msgs{
@@ -679,9 +675,7 @@ ul li.checked::before {
   background-color: #36a4f4;
   padding: 30px 40px;
   color: white;
-  text-align: center;
 }
-
 /* Clear floats after the header */
 .header:after {
   content: "";
@@ -765,6 +759,32 @@ hr{
   padding: 5px;
   text-align: center;
 }
+
+
+#goToDashboard {
+  width: 120px;
+  height: 30px;
+  background-color: lightgray;
+  position: absolute;
+  left: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  bottom: 70px;
+  text-align: center;
+}
+
+#editEvent {
+  width: 120px;
+  height: 30px;
+  background-color: lightgray;
+  position: absolute;
+  left: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  bottom: 120px;
+  text-align: center;
+}
+
 
 #goBack {
   width: 120px;
