@@ -97,7 +97,6 @@
         var json = await resp.json();
         if (json) {
           this.eventCode = generatedEventCode;
-          debugger;
           this.joinEvent();
           this.$router.push('eventpage');
         } else {
