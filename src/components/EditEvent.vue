@@ -79,7 +79,8 @@
               placeholder="end time"
               style="width:40%"
             >
-            <button id="done" class="btn" @click="UpdateEvent">Done</button>
+            <button class="done" @click="goBack">Back</button>
+            <button class="done" @click="UpdateEvent">Done</button>
           </div>
         </div>
       </div>
@@ -110,6 +111,9 @@ export default {
     };
   },
   methods: {
+    goBack: function() {
+      this.$router.push('eventpage');
+    },
     UpdateEvent: async function() {
       this.$swal({
         title: "Are you sure?",

@@ -2,26 +2,25 @@
   <div id="event">
     <div id="eventLeft">
       <div id="eventInfo" v-for="item in event">
-        <div>{{item.eventname}}</div>
-        <br>
-        <div>{{item.eventdate}}</div>
-        <br>
-        <div>{{item.eventtime}}</div>
-        <br>
-        <div>{{item.eventlocation}}</div>
-        <br>
+        <div id="eventnameInfo">{{item.eventname}}</div>
+        <div id="eventdateInfo"><span style="font-weight: 600">When:</span> {{item.eventdate}}</div>
+        <div id="eventtimeInfo"><span style="font-weight: 600">Time:</span> {{item.eventtime}}</div>
+        <div id="eventlocationInfo"><span style="font-weight: 600">Where:</span> {{item.eventlocation}}</div>
+        <div v-if="isAdmin" id="eventCodeInfo"><span style="font-weight: 600">Event Code:</span> {{item.eventCode}}
+        <!-- <div v-if="isAdmin" @click="shareCode" id="sendCode">S H A R E</div> -->
+        </div>
       </div>
-      <button id="deleteEvent" @click="deleteEvent">DELETE</button>
+      <button v-if="isAdmin" id="deleteEvent" @click="deleteEvent">DELETE</button>
       <button id="goToDashboard" @click="goToDashboard">DASHBOARD</button>
-      <button id="editEvent" @click="goEdit">EDIT EVENT</button>
+      <button v-if="isUser" @click="refreshPage" id="refreshPage">REFRESH</button>
+      <button v-if="isAdmin" id="editEvent" @click="goEdit">EDIT EVENT</button>
     </div>
     <div id="eventRight">
-      <div id="newItems" v-for="item in newTasks">
-        <div>{{item.tasks}}</div>
-      </div>
     </div>
     <!--  if admin, show admin component here-->
     <AddTask v-if="isAdmin"/>
+    <!-- if user, show user component here -->
+    <TaskList v-if="isUser"/>
   </div>
 </template>
 
@@ -31,10 +30,12 @@
 </style>
 <script>
 import AddTask from "@/components/AddTask.vue";
+import TaskList from "@/components/TaskList.vue";
 export default {
   name: "eventDetails",
   components: {
-    AddTask: AddTask
+    AddTask: AddTask,
+    TaskList: TaskList
   },
   data() {
     return {
@@ -49,11 +50,15 @@ export default {
       tasks: "",
       newTasks: "",
       isAdmin: false,
+      isUser: false,
       text: "",
       taskID: this.store.taskID
     };
   },
   methods: {
+    refreshPage: function () {
+      this.$router.go();
+    },
     goToDashboard: function() {
       this.$router.push("dashboard");
     },
@@ -127,6 +132,7 @@ export default {
         this.isAdmin = true;
       } else {
         this.isAdmin = false;
+        this.isUser = true;
       }
     }
 

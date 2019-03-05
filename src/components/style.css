@@ -1,3 +1,7 @@
+* {
+  font-family: Nunito!important;
+}
+
 #EventLeftSide {
   font-family: 'Nunito';
   background-color: white;
@@ -147,6 +151,7 @@
 }
 
 #eventRight {
+  overflow: scroll;
   font-family: 'Nunito';
   background-color: rgba(0, 0, 0, 0.1);
   width: 50vw;
@@ -458,7 +463,7 @@ body {
   font-family: 'Nunito';
 }
 
-#done {
+.done {
   display: block;
   width: 100px;
   height: 40px;
@@ -468,7 +473,10 @@ body {
   border: 3px solid #333;
   border-radius: 500px;
   margin: auto;
+  display: inline-block;
   margin-top: 30px;
+  position: relative;
+  margin-left: 70px;
 }
 
 .btn {
@@ -545,6 +553,31 @@ a {
   color: black;
 }
 
+#eventnameInfo {
+  font-weight: 700;
+  font-family: Nunito;
+  font-size: 46px;
+}
+
+#eventdateInfo,
+#eventtimeInfo,
+#eventlocationInfo,
+#eventCodeInfo {
+  font-size: 24px;
+}
+
+#sendCode {
+  background-color: lightskyblue;
+  border-radius: 20px;
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  padding: 7px;
+  color: white;
+  font-family: Nunito;
+}
+
 #banner {
   margin: 0;
   background-color: #38a3ff;
@@ -571,8 +604,18 @@ a {
   display: inline-block;
   margin: 25px;
   width: 300px;
-  height: 150px;
+  height: 250px;
   background-color: white;
+  padding: 90px;
+  border-radius: 30px;
+}
+
+.eventTile:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3)),
+    url("eventRandom5.jpeg");
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
@@ -602,6 +645,50 @@ body {
   width: 50vw;
   height: 100vh;
   text-align: center;
+}
+
+
+.listItems {
+  width: 50vw;
+  height: 200px;
+  font-size: 30px;
+  text-align: center;
+  padding: 80px;
+  color: black;
+  background: linear-gradient(
+    rgba(0,0,0, 0.1),
+    rgba(0,0,0, 0.2)),
+    url("ocean.jpeg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.listItems:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.9)),
+    url("confetti.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  color: white;
+}
+
+.listItems:hover .taskSignup {
+  display: block;
+}
+
+.taskSignup {
+  border-radius: 20px;
+  width: 100px;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  color: dimgray;
+  padding: 10px;
+  display: none;
 }
 
 #msgs {
@@ -686,7 +773,8 @@ ul li.checked::before {
 /* Style the header */
 
 .header {
-  background-color: #36a4f4;
+  /* background-color: #36a4f4; */
+  background-color: rgb(154, 187, 187);
   padding: 30px 40px;
   color: white;
 }
@@ -773,10 +861,12 @@ hr {
 #goDashboard {
   width: 120px;
   height: 30px;
-  background-color: skyblue;
+  background-color: lightsteelblue;
   position: absolute;
   right: 50px;
-  border-radius: 5px;
+  border-radius: 35px;
+  border: none;
+  color: white;
   padding: 5px;
   text-align: center;
 }
@@ -786,9 +876,9 @@ hr {
   float: right;
   color: #000;
   text-shadow: 0 1px 0 #fff;
-  opacity: .5;
-  width: 30px;
-  height: 30px;
+  opacity: .8;
+  width: 40px;
+  height: 40px;
   border-radius: 30px;
   background-color: lightblue;
   background-image: url("https://image.flaticon.com/icons/svg/1159/1159633.svg");
@@ -812,24 +902,26 @@ hr {
   color: #000;
   background-image: url("https://image.flaticon.com/icons/svg/61/61155.svg");
   border-radius: 30px;
-  background-color: lightcoral;
-  text-shadow: 0 1px 0 #fff;
-  opacity: .5;
-  width: 30px;
-  height: 30px;
+  background-color: lightsteelblue;
+  opacity: .8;
+  width: 40px;
+  height: 40px;
   background-position: 51%;
   background-size: 45%;
   background-repeat: no-repeat;
   margin: 0px;
+  z-index: 1000;
 }
 
 #goToDashboard {
   width: 120px;
   height: 30px;
-  background-color: lightgray;
+  background-color: lightsteelblue;
   position: absolute;
   left: 50px;
-  border-radius: 5px;
+  border-radius: 35px;
+  border: none;
+  color: white;
   padding: 5px;
   bottom: 70px;
   text-align: center;
@@ -838,10 +930,12 @@ hr {
 #editEvent {
   width: 120px;
   height: 30px;
-  background-color: lightgray;
+  background-color: lightsteelblue;
   position: absolute;
   left: 50px;
-  border-radius: 5px;
+  color: white;
+  border-radius: 35px;
+  border: none;
   padding: 5px;
   bottom: 120px;
   text-align: center;
@@ -850,25 +944,41 @@ hr {
 #goBack {
   width: 120px;
   height: 30px;
-  background-color: lightgray;
+  background-color: lightsteelblue;
   position: absolute;
   left: 50px;
   top: 20px;
-  border-radius: 5px;
+  border-radius: 35px;
+  color: white;
+  border: none;
   padding: 5px;
   text-align: center;
 }
 
-#deleteEvent {
+#deleteEvent,
+#refreshPage {
   width: 120px;
   height: 30px;
-  background-color: lightgray;
+  background-color: lightsteelblue;
   position: absolute;
+  color: white;
+  border: none;
+  border-radius: 35px;
   left: 50px;
   bottom: 20px;
-  border-radius: 5px;
   padding: 5px;
   text-align: center;
+}
+
+#deleteEvent:hover,
+#goDashboard:hover,
+#refreshPage:hover,
+#goBack:hover,
+#editEvent:hover,
+#goToDashboard:hover {
+  background-color: lightblue;
+  width: 125px;
+  height: 35px;
 }
 
 #send {

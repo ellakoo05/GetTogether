@@ -67,8 +67,10 @@ export default {
 
         var updateButton = event.target;
         updateButton.onclick = e => {
-          this.changeEditInput(e);
+          this.changeEditInput(e)
         };
+        
+        updateButton.style.backgroundImage = "url('https://image.flaticon.com/icons/svg/1159/1159633.svg')";
 
         taskText.innerHTML = event.target.parentElement.querySelector(
           ".updateInput"
@@ -79,50 +81,15 @@ export default {
         inputBox.value = "";
       }
     },
-    changeEditInput: async function(event) {
-      var task = event.target.parentElement;
-      var taskText = task.querySelector(".taskText");
-
-      var updateButton = event.target;
-      updateButton.onclick = e => {
-        this.editTask(e);
-      };
-
-      var inputBox = task.querySelector(".updateInput");
-      inputBox.style.display = "inline-block";
-      inputBox.value = taskText.innerHTML;
-
-      taskText.innerHTML = "";
-    },
-    InsertTask: async function() {
-      var taskForm = new FormData();
-      taskForm.append("tasks", this.tasks);
-      taskForm.append("eventCode", sessionStorage.getItem("eventCode"));
-      var resp = await fetch(
-        "https://gettogetherbcit.herokuapp.com/mysql/insertTasks.php",
-        {
-          method: "POST",
-          body: taskForm
-        }
-      );
-      var json = await resp.json();
-      console.log(json);
-
-      if (json) {
-        // Store
-        sessionStorage.setItem("taskID", json);
-      }
-
+    createTaskElement: function(taskID, inputValue) {
       var i;
-
       // Create a new list item when clicking on the "Add" button
-      var li = document.createElement("li");
-      var inputValue = document.getElementById("myInput").value;
-      //        var inputBox = document.createElement("input");
+      var li = document.createElement("div");
       var taskText = document.createElement("span");
       taskText.className = "taskText";
       taskText.innerHTML = inputValue;
-      li.id = sessionStorage.getItem("taskID");
+      li.id = taskID;
+      li.className = "listItems";
       li.appendChild(taskText);
       if (inputValue === "") {
         alert("You have to write something!");
@@ -159,17 +126,65 @@ export default {
           this.deleteTask(e);
         };
       }
+    },
+    changeEditInput: async function(event) {
+      var task = event.target.parentElement;
+      var taskText = task.querySelector(".taskText");
+
+      var updateButton = event.target;
+      updateButton.onclick = e => {
+        this.editTask(e);
+      };
+      
+      updateButton.style.backgroundImage = "url('https://image.flaticon.com/icons/svg/128/128384.svg')";
+
+      var inputBox = task.querySelector(".updateInput");
+      inputBox.style.display = "inline-block";
+      inputBox.value = taskText.innerHTML;
+
+      taskText.innerHTML = "";
+    },
+    InsertTask: async function() {
+      var taskForm = new FormData();
+      var inputValue = document.getElementById("myInput").value;
+      taskForm.append("tasks", this.tasks);
+      taskForm.append("eventCode", sessionStorage.getItem("eventCode"));
+
+      if (inputValue === "") {
+        alert("You have to write something!");
+      } else {
+        var resp = await fetch(
+          "https://gettogetherbcit.herokuapp.com/mysql/insertTasks.php",
+          {
+            method: "POST",
+            body: taskForm
+          }
+        );
+        var json = await resp.json();
+      
+        if (json) {
+          this.createTaskElement(json, inputValue);
+        }
+      }
     }
   },
-  beforeCreate: function() {
-    var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-      var deleteButton = document.createElement("div");
-      var txt = document.createTextNode("\u00D7");
-      deleteButton.className = "close";
-      deleteButton.appendChild(txt);
-      myNodelist[i].appendChild(deleteButton);
+  beforeCreate: async function() {
+    var displayTasks = new FormData();
+    displayTasks.append("eventCode", sessionStorage.getItem("eventCode"));
+    displayTasks.append("tasks", this.tasks);
+
+    var resp = await fetch(
+      "https://gettogetherbcit.herokuapp.com/mysql/getJoinedTasks.php",
+      {
+        method: "POST",
+        body: displayTasks
+      }
+    );
+    var json = await resp.json();
+    this.newTasks = json;
+  
+    for (var i = 0; i < json.length; i++) {
+      this.createTaskElement(json[i].id, json[i].tasks);
     }
   }
 };

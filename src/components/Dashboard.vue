@@ -4,16 +4,18 @@
       <div class="col-sm-2" style="padding:10px; margin:auto">
         <img src="../assets/title.png" width="100%">
       </div>
-      <button id="goBack" @click="goBack">GO BACK</button>
+      <button id="goBack" @click="goBack">MAIN PAGE</button>
     </div>
     <h2>Your Events</h2>
 
     <div id="events">
       <div class="eventTile" v-for="item in dashboardList">
-        <h3 @click="goToEvent(item.eventCode)">{{item.eventname}}</h3>
+        <h3 @click="goToEvent(item.eventCode)">
+          {{item.eventname}}
+          </h3>
       </div>
       <div class="eventTile">
-        <h3 id="createNew" @click="createNew">Create New...</h3>
+        <h3 @click="createNew">Create New...</h3>
       </div>
     </div>
   </div>
@@ -30,7 +32,10 @@ export default {
   name: "Dashboard",
   data() {
     return {
-      dashboardList: ""
+      dashboardList: "",
+      isAdmin: false,
+      isUser: false,
+      userID: this.store.userID
     };
   },
   methods: {
@@ -58,6 +63,7 @@ export default {
     );
     var json = await resp.json();
     console.log(json);
+
     this.dashboardList = json;
   }
 };
