@@ -774,7 +774,7 @@ ul li.checked::before {
 
 .header {
   /* background-color: #36a4f4; */
-  background-color: rgb(154, 187, 187);
+  background-color:lightsteelblue;
   padding: 30px 40px;
   color: white;
 }
@@ -985,4 +985,50 @@ hr {
   width: 25px;
   height: 25px;
   padding: 5px;
+}
+
+body{
+  font-family: 'Nunito';
+}
+
+#banner{
+  margin: 0;
+  background-color: #38a3ff;
+  text-align: center;
+  height: auto;
+  padding: 10px;
+}
+
+#new{
+  text-align: center;
+  margin: 50px;
+}
+
+h2{
+  text-align: center;
+  margin: 30px;
+  font-weight: 600;
+}
+#title{
+  width: 200px;
+}
+
+.container{
+  background-color: rgba(106, 106, 106, 0.22);
+}
+
+.col-md-2{
+  height: 70px;
+  background-color: skyblue;
+  margin-left: auto;
+  margin-top: 40px;
+  margin-right: auto;
+  color: white;
+  font-size: 22px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.col-md-2:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
