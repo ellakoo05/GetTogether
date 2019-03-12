@@ -4,11 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <link rel="stylesheet" href="Dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <title>Dashboard</title>
   </head>
@@ -17,26 +19,33 @@
     <img id="title" src="./src/assets/title.png" alt="GetTogether">
     </div>
     
-    <h2>Your Events</h2>
+    <h1>Your Events</h1>
     
    <div class="container">
-  <div class="row align-items-start">
+   <!--I want this title in middle of the image("not sure how to do it")-->
+    <h5 class="title">Spring Party</h5>
+     <img class="image" src="src/assets/sparkles.jpeg">
     <div class="col">
-      Event one
+    <!--Get the address and Time from database-->
+     <div class="text">1230 Davie Street<br>12:00PM-12:40AM</div>
+     <button class="button1">Go to Event</button>
     </div>
+    </div>
+<!--
     <div class="col">
       Event two
     </div>
     <div class="col">
       Event three
     </div>
-  </div>
+-->
+
   
   <div class="text-center">
-      <button id="new" type="button" class="btn btn-secondary btn-lg">Create New</button>
+      <button type="button" class="newbtn">Create New Event</button>
     </div>
     
-  </div>
+
   
   </body>
 </html>

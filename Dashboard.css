@@ -1,5 +1,5 @@
 body{
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
 }
 
 #banner{
@@ -15,7 +15,36 @@ body{
   margin: 50px;
 }
 
-h2{
+.container {
+  position: relative;
+  width: 400px;
+}
+
+.container:hover .col{
+  opacity: 1;
+}
+
+.col{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: skyblue;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+ 
+}
+
+h1{
   text-align: center;
   margin: 30px;
   font-weight: 600;
@@ -24,12 +53,65 @@ h2{
   width: 200px;
 }
 
-.container{
-  background-color: rgba(106, 106, 106, 0.22);
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 1;
 }
 
-.col{
-  height: 70px;
-  background-color: skyblue;
-  margin: 18px;
+.button1{
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  border-radius: 35px;
+  background-color: lightsteelblue;
+  color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  top: 120px;
+  
+}
+
+.button1:hover{
+  background-color: #b784a7;
+}
+
+.title{
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  top: 120px;
+}
+
+.newbtn{
+  width: 200px;
+  height: 50px;
+  background-color: lightsteelblue;
+  position: absolute;
+  right: 0;
+  top: 200px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 35px;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.newbtn:hover{
+  background-color: #b784a7;
 }
