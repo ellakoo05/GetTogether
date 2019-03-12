@@ -12,58 +12,64 @@
   color: black;
   left: 0;
   top: 0;
+  border-right: 2px solid rgb(132, 132, 132);
 }
-
 .eventForm {
   text-align: left;
   padding-left: 60px;
   padding-right: 60px;
+  padding-top: 200px;
+
 }
 
 .EventInputs {
   text-align: left;
-  border: solid 1px black;
+  border: solid 1px 0.9 black;
   width: 95%;
-  height: 10px;
+  height: 50px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: Nunito;
 }
 
 #partyButton {
-  font-size: 15px;
+ font-size: 18px;
   font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
-  width: 40%;
-  height: 25px;
+  
+  border-radius: 40px;
+  width: 20%;
+  height: 40px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
+  top: 540px;
+  background-color: lightsteelblue;
+  color: #2e2e2e;
 }
 
 #joinButton {
-  font-size: 15px;
+  font-size: 18px;
   font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
+  border-radius: 40px;
   width: 40%;
-  height: 25px;
+  height: 40px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   top: 0;
+  background-color: lightsteelblue;
+  color: #2e2e2e;
 }
 
 #rightSide {
   height: 100vh;
   right: 0;
-  background-size: cover;
-  position: fixed;
+  height: 100%;
+/*  position: fixed;*/
 }
 
 #joinBox {
@@ -79,10 +85,6 @@
   text-align: left;
 }
 
-.vl {
-  border-left: 2px solid gray;
-  height: 100px;
-}
 
 @media only screen and (max-width: 500px) {
 
@@ -232,21 +234,6 @@
   margin: auto;
 }
 
-#partyButton {
-  font-size: 15px;
-  font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
-  width: 40%;
-  height: 25px;
-  position: absolute;
-  margin: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 40px;
-}
-
 #signupBox {
   width: 300px;
   height: 330px;
@@ -302,6 +289,17 @@ body {}
   margin-left: auto;
   margin-right: auto;
   width: 25%;
+}
+
+#createTitle{
+  color: black;
+  font-weight: 500;
+  margin-top: 35px;
+}
+
+#joinTitle{
+  color: black;
+  font-weight: 500;
 }
 
 #anim {
@@ -509,7 +507,7 @@ body {
 #eventCreate {
   width: 600px;
   margin: auto;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
   font-family: Nunito;
 }
@@ -546,6 +544,7 @@ html {
 h2 {
   padding-left: 60px;
   padding-top: 30px;
+  color: black;
 }
 
 a {
