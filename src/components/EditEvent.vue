@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     goBack: function() {
-      this.$router.push('eventpage');
+      this.$router.push("eventpage");
     },
     UpdateEvent: async function() {
       this.$swal({

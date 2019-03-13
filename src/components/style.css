@@ -4,44 +4,90 @@
 
 #EventLeftSide {
   font-family: 'Nunito';
-  background-color: white;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: left;
+  color: black;
+  left: 0;
+  padding: 0px;
+  font-weight: 400;
+}
+
+#EventLeftSide .col-md-8 {
+  margin: auto;
+}
+
+.eventCol {
+  margin-top: 70px;
+}
+#EventLeftSide label {
+  font-size: 26px;
+  text-align: left;
+}
+
+#EventLeftSide .col-md-5 {
+  padding: 0px;
+}
+
+.date-time {
+  display: inline-block;
+  position: relative;
+}
+
+#EventRightSide {
+  font-family: 'Nunito';
   width: 50vw;
   height: 100vh;
   position: absolute;
   text-align: center;
   color: black;
-  left: 0;
-  top: 0;
+  right: 0;
+  margin: auto;
+  padding: 0px;
 }
 
 .eventForm {
-  text-align: left;
-  padding-left: 60px;
-  padding-right: 60px;
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 450px;
+  height: 400px;
+}
+
+#signupBox {
+  width: 300px;
+  height: 330px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+}
+
+.eventForm .col-lg-12{
+  padding: 0px;
+}
+
+.eventForm .col-lg-5{
+  padding: 0px;
 }
 
 .EventInputs {
   text-align: left;
   border: solid 1px black;
-  width: 95%;
-  height: 10px;
+  width: 100%;
+  height:35px;
   padding: 10px;
+  border-radius:15px;
   font-size: 14px;
   font-family: Nunito;
-}
-
-#partyButton {
-  font-size: 15px;
-  font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
-  width: 40%;
-  height: 25px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  display: inline-block;
 }
 
 #joinButton {
@@ -57,13 +103,6 @@
   bottom: 0;
   margin: auto;
   top: 0;
-}
-
-#rightSide {
-  height: 100vh;
-  right: 0;
-  background-size: cover;
-  position: fixed;
 }
 
 #joinBox {
@@ -87,19 +126,16 @@
 @media only screen and (max-width: 500px) {
 
   #leftSide,
-  .eventForm,
   #eventCreate {
     position: relative;
     width: 100%;
     top: 0;
     left: 0;
   }
-
-  #rightSide {}
 }
 
 #leftSide {
-  background-image: url("../assets/balloon.png");
+  background-image: url("../assets/eventRandom5.jpeg");
   height: 100vh;
   background-size: cover;
   position: fixed;
@@ -232,7 +268,7 @@
   margin: auto;
 }
 
-#partyButton {
+.partyButton {
   font-size: 15px;
   font-family: Nunito;
   border: solid 1px dimgray;
@@ -240,13 +276,19 @@
   width: 40%;
   height: 25px;
   position: absolute;
-  margin: auto;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  margin: auto;
   margin-bottom: 40px;
 }
 
+#partyButton:hover,
+#signupButton:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: solid 2px lightgray;
+}
 #signupBox {
   width: 300px;
   height: 330px;
@@ -256,6 +298,13 @@
   right: 0;
   margin: auto;
   position: absolute;
+  text-align: center;
+}
+
+#signupBox h2 {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 #rightSide {
@@ -328,10 +377,14 @@ body {}
   margin: auto;
 }
 
+#start:hover {
+  color: white;
+  border: 3px solid white;
+}
+
 #login,
 #getStarted,
 #event,
-#eventForm,
 #register {
   opacity: 1;
   animation-name: fadeInOpacity;
@@ -502,27 +555,19 @@ body {
   position: absolute;
   text-align: center;
   color: dimgray;
-  right: 0;
-  top: 35px;
 }
 
-#eventCreate {
-  width: 600px;
+.eventCreate {
+  width: 500px;
+  height: 100vh;
   margin: auto;
-  padding: 20px;
   text-align: center;
   font-family: Nunito;
 }
 
-#EventLeftSide {
-  font-family: 'Nunito';
-  width: 50vw;
-  height: 100vh;
-  position: absolute;
-  text-align: center;
-  color: black;
-  left: 0;
-  top: 0;
+.eventCreate h2 {
+  padding-left: 0px;
+  margin-top: 50px;
 }
 
 #eventLeft {
@@ -533,11 +578,6 @@ body {
   position: absolute;
 }
 
-.eventForm {
-  text-align: left;
-  padding-left: 60px;
-  padding-right: 60px;
-}
 
 html {
   margin: 0;
@@ -613,7 +653,7 @@ a {
 .eventTile:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.4),
     rgba(0, 0, 0, 0.3)),
-    url("eventRandom5.jpeg");
+    url("../assets/eventRandom5.jpeg");
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -651,14 +691,32 @@ body {
 .listItems {
   width: 50vw;
   height: 200px;
-  font-size: 30px;
+  font-size: 26px;
   text-align: center;
+  margin: auto;
   padding: 80px;
   color: black;
   background: linear-gradient(
     rgba(0,0,0, 0.1),
     rgba(0,0,0, 0.2)),
-    url("ocean.jpeg");
+    url("../assets/ocean.jpeg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.listItemsForUsers {
+  width: 50vw;
+  height: 200px;
+  font-size: 26px;
+  text-align: center;
+  margin: auto;
+  padding: 80px;
+  color: black;
+  background: linear-gradient(
+    rgba(0,0,0, 0.1),
+    rgba(0,0,0, 0.2)),
+    url("../assets/ocean.jpeg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -667,28 +725,80 @@ body {
 .listItems:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.4),
     rgba(0, 0, 0, 0.9)),
-    url("confetti.jpeg");
+    url("../assets/confetti.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
   color: white;
 }
 
-.listItems:hover .taskSignup {
+.listItemsForUsers:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.9)),
+    url("../assets/confetti.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  color: white;
+  padding: 30px;
+}
+
+.listItemsForUsers:hover .taskSignup {
   display: block;
+}
+
+.taskSignup:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border:solid 1px white;
 }
 
 .taskSignup {
   border-radius: 20px;
-  width: 100px;
-  height: 40px;
+  width: 90px;
+  height: 35px;
   margin: auto;
+  margin-top: 5px;
   text-align: center;
   font-size: 14px;
   background-color: white;
   color: dimgray;
-  padding: 10px;
+  padding: 8px;
   display: none;
+}
+
+.listItemsForUsers:hover .userList {
+  display: inline-block;
+}
+
+.userList {
+  border-radius: 20px;
+  width: 90px;
+  height: 35px;
+  margin: 5px;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgba(0,0,0,0.7);
+  color: dimgray;
+  padding: 8px;
+  display: none;
+}
+
+.userListForAdmin {
+  border-radius: 20px;
+  width: 90px;
+  height: 35px;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgba(0,0,0,0.7);
+  color: dimgray;
+  padding: 8px;
+  display: none;
+  margin: 5px;
+}
+
+.listItems:hover .userListForAdmin {
+  display: inline-block;
 }
 
 #msgs {
@@ -714,6 +824,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 
 
 /* Style the list items */
@@ -864,6 +975,7 @@ hr {
   background-color: lightsteelblue;
   position: absolute;
   right: 50px;
+  top: 15px;
   border-radius: 35px;
   border: none;
   color: white;
@@ -886,6 +998,7 @@ hr {
   background-size: 65%;
   background-repeat: no-repeat;
   margin-right: 10px;
+  margin-top: -40px;
 }
 
 .deleteButton:hover {
@@ -906,10 +1019,11 @@ hr {
   opacity: .8;
   width: 40px;
   height: 40px;
+  top:0px;
   background-position: 51%;
   background-size: 45%;
   background-repeat: no-repeat;
-  margin: 0px;
+  margin: -40px;
   z-index: 1000;
 }
 
@@ -1011,10 +1125,6 @@ h2{
 }
 #title{
   width: 200px;
-}
-
-.container{
-  background-color: rgba(106, 106, 106, 0.22);
 }
 
 .col-md-2{

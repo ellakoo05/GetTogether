@@ -3,11 +3,21 @@
     <div id="eventLeft">
       <div id="eventInfo" v-for="item in event">
         <div id="eventnameInfo">{{item.eventname}}</div>
-        <div id="eventdateInfo"><span style="font-weight: 600">When:</span> {{item.eventdate}}</div>
-        <div id="eventtimeInfo"><span style="font-weight: 600">Time:</span> {{item.eventtime}}</div>
-        <div id="eventlocationInfo"><span style="font-weight: 600">Where:</span> {{item.eventlocation}}</div>
-        <div v-if="isAdmin" id="eventCodeInfo"><span style="font-weight: 600">Event Code:</span> {{item.eventCode}}
-        <!-- <div v-if="isAdmin" @click="shareCode" id="sendCode">S H A R E</div> -->
+        <div id="eventdateInfo">
+          <span style="font-weight: 600">When:</span>
+          {{item.eventdate}}
+        </div>
+        <div id="eventtimeInfo">
+          <span style="font-weight: 600">Time:</span>
+          {{item.eventtime}}
+        </div>
+        <div id="eventlocationInfo">
+          <span style="font-weight: 600">Where:</span>
+          {{item.eventlocation}}
+        </div>
+        <div v-if="isAdmin" id="eventCodeInfo">
+          <span style="font-weight: 600">Event Code:</span>
+          {{item.eventCode}}
         </div>
       </div>
       <button v-if="isAdmin" id="deleteEvent" @click="deleteEvent">DELETE</button>
@@ -15,8 +25,7 @@
       <button v-if="isUser" @click="refreshPage" id="refreshPage">REFRESH</button>
       <button v-if="isAdmin" id="editEvent" @click="goEdit">EDIT EVENT</button>
     </div>
-    <div id="eventRight">
-    </div>
+    <div id="eventRight"></div>
     <!--  if admin, show admin component here-->
     <AddTask v-if="isAdmin"/>
     <!-- if user, show user component here -->
@@ -56,7 +65,7 @@ export default {
     };
   },
   methods: {
-    refreshPage: function () {
+    refreshPage: function() {
       this.$router.go();
     },
     goToDashboard: function() {

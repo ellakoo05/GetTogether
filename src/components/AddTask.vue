@@ -17,13 +17,17 @@
 @import "./style.css";
 </style>
 
-
 <script>
+import TaskList from "@/components/TaskList.vue";
 export default {
   name: "AddTask",
+  components: {
+    TaskList: TaskList
+  },
   data() {
     return {
-      tasks: ""
+      tasks: "",
+      newTasks: ""
     };
   },
   methods: {
@@ -67,10 +71,11 @@ export default {
 
         var updateButton = event.target;
         updateButton.onclick = e => {
-          this.changeEditInput(e)
+          this.changeEditInput(e);
         };
-        
-        updateButton.style.backgroundImage = "url('https://image.flaticon.com/icons/svg/1159/1159633.svg')";
+
+        updateButton.style.backgroundImage =
+          "url('https://image.flaticon.com/icons/svg/1159/1159633.svg')";
 
         taskText.innerHTML = event.target.parentElement.querySelector(
           ".updateInput"
@@ -81,11 +86,11 @@ export default {
         inputBox.value = "";
       }
     },
-    createTaskElement: function(taskID, inputValue) {
+    createTaskElement: function(taskID, inputValue, assignedUsers) {
       var i;
       // Create a new list item when clicking on the "Add" button
       var li = document.createElement("div");
-      var taskText = document.createElement("span");
+      var taskText = document.createElement("div");
       taskText.className = "taskText";
       taskText.innerHTML = inputValue;
       li.id = taskID;
@@ -104,12 +109,12 @@ export default {
       li.appendChild(updateInput);
 
       // create 'x' button
-      var deleteButton = document.createElement("div");
+      var deleteButton = document.createElement("span");
       deleteButton.className = "deleteButton";
       li.appendChild(deleteButton);
 
       //create update button
-      var updateButton = document.createElement("div");
+      var updateButton = document.createElement("span");
       updateButton.className = "updateButton";
       li.appendChild(updateButton);
 
@@ -126,6 +131,16 @@ export default {
           this.deleteTask(e);
         };
       }
+
+      // add assignedusers div
+      if (assignedUsers !== undefined) {
+        for (i = 0; i < assignedUsers.length; i++) {
+          var assignedUserList = document.createElement("div");
+          assignedUserList.className = "userListForAdmin";
+          assignedUserList.innerHTML = assignedUsers[i];
+          li.appendChild(assignedUserList);
+        }
+      }
     },
     changeEditInput: async function(event) {
       var task = event.target.parentElement;
@@ -135,11 +150,13 @@ export default {
       updateButton.onclick = e => {
         this.editTask(e);
       };
-      
-      updateButton.style.backgroundImage = "url('https://image.flaticon.com/icons/svg/128/128384.svg')";
+
+      updateButton.style.backgroundImage =
+        "url('https://image.flaticon.com/icons/svg/128/128384.svg')";
 
       var inputBox = task.querySelector(".updateInput");
-      inputBox.style.display = "inline-block";
+      inputBox.style.display = "block";
+      inputBox.style.margin = "auto";
       inputBox.value = taskText.innerHTML;
 
       taskText.innerHTML = "";
@@ -161,9 +178,9 @@ export default {
           }
         );
         var json = await resp.json();
-      
+
         if (json) {
-          this.createTaskElement(json, inputValue);
+          this.createTaskElement(json, inputValue, undefined);
         }
       }
     }
@@ -171,7 +188,6 @@ export default {
   beforeCreate: async function() {
     var displayTasks = new FormData();
     displayTasks.append("eventCode", sessionStorage.getItem("eventCode"));
-    displayTasks.append("tasks", this.tasks);
 
     var resp = await fetch(
       "https://gettogetherbcit.herokuapp.com/mysql/getJoinedTasks.php",
@@ -180,11 +196,55 @@ export default {
         body: displayTasks
       }
     );
+
     var json = await resp.json();
-    this.newTasks = json;
-  
-    for (var i = 0; i < json.length; i++) {
-      this.createTaskElement(json[i].id, json[i].tasks);
+
+    if (json.length > 0) {
+      this.isTasksNotEmpty = true;
+      var tasksMap = new Map();
+      for (var i = 0; i < json.length; i++) {
+        tasksMap.set(json[i].id, json[i]);
+      }
+
+      this.newTasks = tasksMap;
+
+      var assignedUsers = new FormData();
+      assignedUsers.append("eventCode", sessionStorage.getItem("eventCode"));
+
+      var resp2 = await fetch(
+        "https://gettogetherbcit.herokuapp.com/mysql/getAssignedUsers.php",
+        {
+          method: "POST",
+          body: assignedUsers
+        }
+      );
+
+      var json2 = await resp2.json();
+      var usersArray = [];
+      for (var i = 0; i < json2.length; i++) {
+        if (tasksMap.has(json2[i].taskID)) {
+          var taskObject = tasksMap.get(json2[i].taskID);
+          if (taskObject.assignedUsers !== undefined) {
+            usersArray = taskObject.assignedUsers;
+          } else {
+            usersArray = [];
+          }
+          usersArray.push(json2[i].username);
+          taskObject.assignedUsers = usersArray;
+        }
+        tasksMap.set(json2[i].taskID, taskObject);
+      }
+
+      var tasksJSONArray = [];
+      var temp = tasksMap.entries();
+
+      for (var task of temp) {
+        this.createTaskElement(
+          task[1].id,
+          task[1].tasks,
+          task[1].assignedUsers
+        );
+      }
     }
   }
 };

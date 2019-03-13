@@ -14,6 +14,8 @@
                 class="inputs"
                 placeholder="username"
                 v-model="username"
+                required
+                autofocus
               >
               <input type="text" name="email" class="inputs" placeholder="email" v-model="email">
               <input
@@ -23,7 +25,7 @@
                 placeholder="password"
                 v-model="password"
               >
-              <button @click="LogIn" id="partyButton">let's party!</button>
+              <button @click="LogIn" class="partyButton">let's party!</button>
               <router-link to="/signuppage" tag="button" id="signupButton">sign up</router-link>
             </div>
           </div>
@@ -82,7 +84,7 @@ export default {
           this.$router.push("mainpage");
         }
       } else {
-        alert("Please Sign Up");
+        alert("Please Check your information again.");
       }
     }
   }

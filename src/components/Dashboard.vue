@@ -6,21 +6,27 @@
       </div>
       <button id="goBack" @click="goBack">MAIN PAGE</button>
     </div>
-    
+
     <h2>Your Events</h2>
 
-   <div class="container">
-  <div class="row align-items-start">
-    <div @click="goToEvent(item.eventCode)" class="col-md-2" v-for="item in dashboardList">
-      {{item.eventname}}
+    <div class="container">
+      <div class="row align-items-start">
+        <div
+          @click="goToEvent(item.eventCode)"
+          class="col-md-2"
+          v-for="item in dashboardList"
+        >{{item.eventname}}</div>
+      </div>
+
+      <div class="text-center">
+        <button
+          @click="createNew"
+          id="new"
+          type="button"
+          class="btn btn-secondary btn-lg"
+        >Create New</button>
+      </div>
     </div>
-  </div>
-  
-  <div class="text-center">
-      <button @click="createNew" id="new" type="button" class="btn btn-secondary btn-lg">Create New</button>
-    </div>
-    
-  </div>
   </div>
 </template>
 
