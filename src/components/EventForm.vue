@@ -1,75 +1,45 @@
 <template>
   <div id="eventForm">
     <div id="EventLeftSide">
-      <div class="container">
-        <h2>create event</h2>
-        <div class="row eventCol">
-          <div class="col-md-8">
-            <label for="basic">Basics</label>
-            <input
-              type="text"
-              name="eventname"
-              class="EventInputs"
-              placeholder="Event Name"
-              v-model="eventname"
-            >
-            <br/><br/>
-            </div>
-            <div class="col-md-8">
-            <input type="text" name="eventorganizer" class="EventInputs" placeholder="Organizer">
-                        <br/><br/>
-            </div>
-            <div class="col-md-8">
-            <label for="location">Location</label>
-            <input
-              type="text"
-              name="eventlocation"
-              class="EventInputs"
-              placeholder="enter address or venue name"
-              v-model="eventlocation"
-            >
-                        <br/><br/>
-            </div>
-            
-            <div class="col-md-8">
-            <label for="datetime">Date and Time</label>
-
-            <div class="col-md-5">
-            <input type="date" name="eventdate" v-model="eventdate" class="EventInputs" required>
-            </div>
-
-            <br/>
-
-            <div class="col-md-5">
-            <input
-              type="time"
-              name="eventtime"
-              v-model="eventtime"
-              class="EventInputs"
-              placeholder="start time"
-              required
-            ></div>
-            </div>
-          <button @click="insertEvent" class="partyButton">Let's Party!</button>
+      <div id="eventCreate">
+        <h2 id="createTitle" >Create</h2>
+        <div class="eventForm">
+          <h3 class="formnames">Basics</h3>
+          <input type="text" name="eventname" class="EventInputs" placeholder="Event Name" v-model="eventname"><br/><br/>
+<!--
+          <input type="text" name="eventtype" class="EventInputs" style="width:40%" placeholder="Type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" name="eventcategory" class="EventInputs" style="width:40%" placeholder="Category"><br/>
+          <br/>
+-->
+          <input type="text" name="eventorganizer" class="EventInputs" placeholder="Organizer">
+          <br/>
+          <br/>
+          <h3 class="formnames">Location</h3>
+          <input type="text" name="eventlocation" class="EventInputs" placeholder="Enter address or venue name" v-model="eventlocation">
+          <br/><br/>
+          <h3 class="formnames">Date and Time</h3>
+<!--          <h6>Start Date</h6>-->
+          <input type="date" name="eventdate" v-model="eventdate" class="EventInputs" placeholder="start date" style="width:40%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--          <h6>Start Time</h6>-->
+          <input type="time" name="eventtime" v-model="eventtime" class="EventInputs" placeholder="start time" style="width:40%"/><br/><br/>
+<!--          <h6>End Date</h6>-->
+          <input type="date" name="eventenddate" v-model="eventenddate" class="EventInputs" placeholder="end date" style="width:40%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--          <h6>End Time</h6>-->
+          <input type="time" name="eventend" v-model="eventend" class="EventInputs" placeholder="end time" style="width:40%"/>
+          <button @click="insertEvent" id="partyButton">Let's Party!</button>
         </div>
       </div>
     </div>
     <div id="EventRightSide" class="vl">
       <button id="goDashboard" @click="goToDashboard">DASHBOARD</button>
-      <div class="eventCreate">
-        <h2>join event</h2>
-        <div id="joinBox">
-          <h3 style="padding-top:10px; padding-left:15px; color:black;" class="formnames">event code</h3>
-          <div class="signupForm" id="join">
-            <input
-              type="text"
-              name="eventCode"
-              class="EventInputs"
-              placeholder="enter event code..."
-              v-model="eventCode"
-            >
-            <button @click="joinEvent" id="joinButton">join event</button>
-          </div>
+      <div id="eventCreate">
+        <h2 id="joinTitle">Join</h2>
+      <div id="joinBox">
+        <h3 style="padding-top:10px; padding-left:15px; color:black;" class="formnames">Event code</h3>
+        <div class="signupForm" id="join">
+          <input type="text" name="eventCode" class="EventInputs" placeholder="enter event code...(eg. 876587)" v-model="eventCode">
+          <button @click="joinEvent" id="joinButton">Join Event</button>
+        </div>
         </div>
       </div>
     </div>

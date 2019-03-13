@@ -10,12 +10,15 @@
   text-align: left;
   color: black;
   left: 0;
-  padding: 0px;
-  font-weight: 400;
+  top: 0;
+  border-right: 2px solid rgb(132, 132, 132);
 }
+.eventForm {
+  text-align: left;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 200px;
 
-#EventLeftSide .col-md-8 {
-  margin: auto;
 }
 
 .eventCol {
@@ -24,21 +27,21 @@
 #EventLeftSide label {
   font-size: 26px;
   text-align: left;
+  border: solid 1px 0.9 black;
+  width: 95%;
+  height: 50px;
+  padding: 10px;
+  font-size: 15px;
+  font-family: Nunito;
 }
 
-#EventLeftSide .col-md-5 {
-  padding: 0px;
-}
-
-.date-time {
-  display: inline-block;
-  position: relative;
-}
-
-#EventRightSide {
-  font-family: 'Nunito';
-  width: 50vw;
-  height: 100vh;
+#partyButton {
+ font-size: 18px;
+  font-family: Nunito;
+  
+  border-radius: 40px;
+  width: 20%;
+  height: 40px;
   position: absolute;
   text-align: center;
   color: black;
@@ -66,43 +69,32 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  position: absolute;
-  text-align: center;
-}
-
-.eventForm .col-lg-12{
-  padding: 0px;
-}
-
-.eventForm .col-lg-5{
-  padding: 0px;
-}
-
-.EventInputs {
-  text-align: left;
-  border: solid 1px black;
-  width: 100%;
-  height:35px;
-  padding: 10px;
-  border-radius:15px;
-  font-size: 14px;
-  font-family: Nunito;
-  display: inline-block;
+  top: 540px;
+  background-color: lightsteelblue;
+  color: #2e2e2e;
 }
 
 #joinButton {
-  font-size: 15px;
+  font-size: 18px;
   font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
+  border-radius: 40px;
   width: 40%;
-  height: 25px;
+  height: 40px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   top: 0;
+  background-color: lightsteelblue;
+  color: #2e2e2e;
+}
+
+#rightSide {
+  height: 100vh;
+  right: 0;
+  height: 100%;
+/*  position: fixed;*/
 }
 
 #joinBox {
@@ -118,10 +110,6 @@
   text-align: left;
 }
 
-.vl {
-  border-left: 2px solid gray;
-  height: 100px;
-}
 
 @media only screen and (max-width: 500px) {
 
@@ -268,27 +256,6 @@
   margin: auto;
 }
 
-.partyButton {
-  font-size: 15px;
-  font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
-  width: 40%;
-  height: 25px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  margin-bottom: 40px;
-}
-
-#partyButton:hover,
-#signupButton:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: solid 2px lightgray;
-}
 #signupBox {
   width: 300px;
   height: 330px;
@@ -351,6 +318,17 @@ body {}
   margin-left: auto;
   margin-right: auto;
   width: 25%;
+}
+
+#createTitle{
+  color: black;
+  font-weight: 500;
+  margin-top: 35px;
+}
+
+#joinTitle{
+  color: black;
+  font-weight: 500;
 }
 
 #anim {
@@ -561,6 +539,7 @@ body {
   width: 500px;
   height: 100vh;
   margin: auto;
+  padding: 0px;
   text-align: center;
   font-family: Nunito;
 }
@@ -586,6 +565,7 @@ html {
 h2 {
   padding-left: 60px;
   padding-top: 30px;
+  color: black;
 }
 
 a {
