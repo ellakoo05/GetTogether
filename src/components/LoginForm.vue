@@ -2,12 +2,12 @@
   <div id="login">
     <div class="container">
       <div class="row">
-        <div id="leftSide" class="col-lg-6"></div>
-        <div id="rightSide" class="col-lg-6">
-          <div id="signupBox">
+        <div id="LeftSide" class="col-lg-6"></div>
+        <div id="RightSide" class="col-lg-6">
+          <div class="signupBox">
             <h2>login</h2>
             <hr style="width: 300px;">
-            <div class="signupForm" id="userRegistration">
+            <div class="signupForm">
               <input
                 type="text"
                 name="username"
@@ -17,7 +17,6 @@
                 required
                 autofocus
               >
-              <input type="text" name="email" class="inputs" placeholder="email" v-model="email">
               <input
                 type="password"
                 name="password"
@@ -48,7 +47,6 @@ export default {
     return {
       userID: this.store.userID,
       username: "",
-      email: "",
       password: "",
       page: 0
     };
@@ -57,7 +55,6 @@ export default {
     LogIn: async function() {
       var userForm = new FormData();
       userForm.append("username", this.username);
-      userForm.append("email", this.email);
       userForm.append("password", this.password);
 
       var resp = await fetch(
@@ -69,20 +66,12 @@ export default {
       );
       var json = await resp.json();
 
-      console.log(json);
-      if (json.status) {
-        this.store.userID = json.id;
-        this.store.username = json.username;
-        this.store.email = json.email;
+      if (typeof Storage !== "undefined") {
+        sessionStorage.setItem("username", json.username);
+        sessionStorage.setItem("userID", json.id);
+        sessionStorage.setItem("email", json.email);
 
-        if (typeof Storage !== "undefined") {
-          // Store
-          sessionStorage.setItem("username", json.username);
-          sessionStorage.setItem("userID", json.id);
-          sessionStorage.setItem("email", json.email);
-
-          this.$router.push("mainpage");
-        }
+        this.$router.push("mainpage");
       } else {
         alert("Please Check your information again.");
       }

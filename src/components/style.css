@@ -2,17 +2,187 @@
   font-family: Nunito !important;
 }
 
+/* ------------- GetTogether Start Page ------------- */
+
+.wrapper {
+  background-image: url(../assets/davidBG.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logo {
+  display: block;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  transition: 0.5;
+}
+
+#logo_wave {
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.start-btn {
+  display: block;
+  font-family: 'Nunito', sans-serif, bold;
+  font-size: 1.25em;
+  font-weight: 600;
+  border: 3px solid #333;
+  border-radius: 500px;
+  margin:auto;
+  margin-top:100px; 
+  background-color: #333;
+  color:white;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background-color: white;
+  color: #333;
+  border: 3px solid
+}
+
+.start-details {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#footer {
+  text-align: center;
+  color: #ccc;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 40px;
+}
+
+/* ------------- GetTogether Login Page ------------- */
+
+
 #LeftSide {
+  background-image: url("../assets/eventRandom5.jpeg");
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  left: 0px;
+}
+
+#RightSide {
+  font-family: 'Nunito';
+  background-color: white;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  text-align: center;
+  color: dimgray;
+  right: 0;
+  top: 0;
+}
+
+.signupBox {
+  width: 300px;
+  height: 330px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+}
+
+.signupBox h2 {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.signupForm {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.inputs {
+  text-align: left;
+  border: none;
+  height: 30px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Nunito;
+}
+
+/* ------------- GetTogether Event Form Page ------------- */
+
+
+#EventRightSide {
   font-family: 'Nunito';
   width: 50vw;
   height: 100vh;
   position: absolute;
-  text-align: left;
+  text-align: center;
+  color: black;
+  right: 0;
+  margin: auto;
+  padding: 0px;
+}
+
+#EventLeftSide {
+  font-family: 'Nunito';
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
   color: black;
   left: 0;
+  margin: auto;
   padding: 0px;
-  font-weight: 400;
 }
+
+.eventCreate {
+  width: 500px;
+  height: 100vh;
+  margin: auto;
+  font-family: Nunito;
+}
+
+.eventCreate h2 {
+  padding-left: 0px;
+  margin-top: 50px;
+}
+
+.eventCol {
+  margin-top: 40px;
+}
+
+.dashboard-btn-main {
+  width: 120px;
+  height: 30px;
+  background-color: lightsteelblue;
+  position: absolute;
+  right: 50px;
+  top: 15px;
+  border-radius: 35px;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+/* #goDashboard {
+  width: 120px;
+  height: 30px;
+  background-color: lightsteelblue;
+  position: absolute;
+  color: white;
+  border: none;
+  border-radius: 35px;
+  left: 50px;
+  padding: 5px;
+  text-align: center;
+} */
 
 #editForm .col-lg-5 {
   margin: auto;
@@ -25,10 +195,6 @@
 
 .editCol .col-lg-6 {
   margin: auto;
-}
-
-.eventCol {
-  margin-top: 40px;
 }
 
 #EventLeftSide label {
@@ -74,29 +240,6 @@
   position: relative;
 }
 
-#EventRightSide {
-  font-family: 'Nunito';
-  width: 50vw;
-  height: 100vh;
-  position: absolute;
-  text-align: center;
-  color: black;
-  right: 0;
-  margin: auto;
-  padding: 0px;
-}
-
-#EventLeftSide {
-  font-family: 'Nunito';
-  width: 50vw;
-  height: 100vh;
-  position: absolute;
-  color: black;
-  left: 0;
-  margin: auto;
-  padding: 0px;
-}
-
 .eventForm {
   margin: auto;
   position: absolute;
@@ -118,18 +261,6 @@
   width: 450px;
   height: 400px;
   background-color: red;
-}
-
-#signupBox {
-  width: 300px;
-  height: 330px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  position: absolute;
-  text-align: center;
 }
 
 .eventForm .col-lg-12 {
@@ -276,14 +407,6 @@
   }
 }
 
-#leftSide {
-  background-image: url("../assets/eventRandom5.jpeg");
-  height: 100vh;
-  background-size: cover;
-  position: fixed;
-  left: 0px;
-}
-
 #eventLeft {
   height: 100vh;
   width: 50vw;
@@ -364,12 +487,6 @@
   right: 0;
   top: 0;
 }
-
-.signupForm {
-  text-align: left;
-  padding-left: 15px;
-}
-
 .rows {
   width: 100%;
   height: 20vh;
@@ -386,15 +503,6 @@
 .rows:hover {
   opacity: 0.5;
   transition: 1s;
-}
-
-.inputs {
-  text-align: left;
-  border: none;
-  height: 30px;
-  padding: 10px;
-  font-size: 14px;
-  font-family: Nunito;
 }
 
 .signupButton {
@@ -440,36 +548,6 @@
   border: solid 2px lightsteelblue;
 }
 
-#signupBox {
-  width: 300px;
-  height: 330px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  position: absolute;
-  text-align: center;
-}
-
-#signupBox h2 {
-  text-align: center;
-  margin: 0px;
-  padding: 0px;
-}
-
-#rightSide {
-  font-family: 'Nunito';
-  background-color: white;
-  width: 50vw;
-  height: 100vh;
-  position: absolute;
-  text-align: center;
-  color: dimgray;
-  right: 0;
-  top: 0;
-}
-
 @media only screen and (max-width: 500px) {
   #leftSide {
     position: relative;
@@ -496,13 +574,7 @@
 
 body {}
 
-#title {
-  display: block;
-  margin-top: 90px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-}
+
 
 #anim {
   max-width: 800px;
@@ -510,33 +582,11 @@ body {}
   margin: 0 auto;
 }
 
-#titlewave {
-  display: block;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-}
-
-#start {
-  display: block;
-  font-family: 'Nunito', sans-serif, bold;
-  font-size: 1.25em;
-  font-weight: 600;
-  border: 3px solid #333;
-  border-radius: 500px;
-  margin: auto;
-}
-
-#start:hover {
-  color: white;
-  border: 3px solid white;
-}
-
 #login,
 #getStarted,
 #event,
-#register {
+#register,
+#start_page {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -615,18 +665,6 @@ li {
   text-align: left;
 }
 
-.btn {
-  background-color: transparent;
-  color: #333;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #333;
-  color: white;
-}
-
 #middle {
   width: 100%;
   bottom: 0px;
@@ -643,24 +681,6 @@ li {
 
 h3 {
   text-align: center;
-}
-
-.icons {
-  width: 100px;
-  height: 100px;
-}
-
-#footer {
-  text-align: center;
-  color: #ccc;
-  font-family: 'Nunito', sans-serif;
-  margin-top: 40px;
-}
-
-#wrapper {
-  background-image: url(../assets/davidBG.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 body {
@@ -695,10 +715,6 @@ body {
   transition: 0.3s;
 }
 
-.colSection {
-  text-align: center;
-}
-
 .btn:hover {
   background-color: #333;
   color: white;
@@ -722,12 +738,6 @@ body {
   display: inline-block;
 }
 
-.eventCreate {
-  width: 500px;
-  height: 100vh;
-  margin: auto;
-  font-family: Nunito;
-}
 
 .EditEvent h2 {
   text-align: center;
@@ -755,10 +765,6 @@ body {
   border-radius: 40px;
 }
 
-.eventCreate h2 {
-  padding-left: 0px;
-  margin-top: 50px;
-}
 
 #eventLeft {
   height: 100vh;
@@ -1184,15 +1190,15 @@ hr {
 }
 
 .msg_container {
-  background-color:#56bfb8;
-  border-radius:25px;
-  margin-left:auto;
+  background-color: #56bfb8;
+  border-radius: 25px;
+  margin-left: auto;
   margin-right: 5px;
   margin-bottom: 10px;
-  padding:5px;
-  position:relative;
-  text-align:left;
-  width:250px;
+  padding: 5px;
+  position: relative;
+  text-align: left;
+  width: 250px;
 }
 
 .msg_container2 {
@@ -1206,19 +1212,6 @@ hr {
   float: left;
 }
 
-.goDashboard {
-  width: 120px;
-  height: 30px;
-  background-color: lightsteelblue;
-  position: absolute;
-  right: 50px;
-  top: 15px;
-  border-radius: 35px;
-  border: none;
-  color: white;
-  padding: 5px;
-  text-align: center;
-}
 
 .updateButton {
   display: inline-block;
@@ -1350,7 +1343,7 @@ hr {
 }
 
 .goDelete-btn:hover,
-.goDashboard:hover,
+.dashboard-btn-main:hover,
 .goRefresh-btn:hover,
 #goBack:hover,
 .goEdit-btn:hover,
@@ -1359,18 +1352,6 @@ hr {
   width: 130px;
 }
 
-#goDashboard {
-  width: 120px;
-  height: 30px;
-  background-color: lightsteelblue;
-  position: absolute;
-  color: white;
-  border: none;
-  border-radius: 35px;
-  left: 50px;
-  padding: 5px;
-  text-align: center;
-}
 
 #send {
   width: 25px;
@@ -1391,10 +1372,6 @@ h2 {
   text-align: center;
   margin: 30px;
   font-weight: 600;
-}
-
-#title {
-  width: 200px;
 }
 
 .newE {

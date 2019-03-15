@@ -56,8 +56,9 @@
         </div>
       </div>
     </div>
+
     <div id="EventRightSide" class="vl">
-      <button class="goDashboard" @click="goToDashboard">DASHBOARD</button>
+      <button class="dashboard-btn-main" @click="goToDashboard">DASHBOARD</button>
       <div class="container eventCreate">
         <h2>Join</h2>
         <div class="row eventCol">
@@ -99,7 +100,7 @@ export default {
       page: 0,
       eventCode: "",
       userID: this.store.userID,
-      username: this.store.username,
+      username: this.store.username
     };
   },
   methods: {
@@ -108,12 +109,11 @@ export default {
     },
     insertEvent: async function() {
       var generatedEventCode = "";
-      //generatedEventCode = randomly generated event code
       for (var i = 0; i < 6; i++) {
         var t = Math.round(Math.random() * 9);
         generatedEventCode += t;
       }
-      //store generatedEventCode in sessionStorage
+
       sessionStorage.setItem("eventCode", generatedEventCode);
       var eventForm = new FormData();
       eventForm.append("eventname", this.eventname);
@@ -144,7 +144,7 @@ export default {
       var joinForm = new FormData();
       joinForm.append("userID", sessionStorage.getItem("userID"));
       joinForm.append("eventCode", this.eventCode);
-      console.log;
+
       sessionStorage.setItem("eventCode", this.eventCode);
       var resp = await fetch(
         "https://gettogetherbcit.herokuapp.com/mysql/joinEvent.php",
@@ -157,7 +157,7 @@ export default {
       if (json) {
         this.$router.push("eventpage");
       } else {
-        alert("NO!");
+        alert("Please check again.");
       }
     }
   }

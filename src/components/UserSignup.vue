@@ -2,7 +2,7 @@
   <div id="register">
     <div class="container">
       <div class="row">
-        <div id="leftSide" class="col-lg-6"></div>
+        <div id="LeftSide" class="col-lg-6"></div>
         <div id="rightSide">
           <div id="signupBox">
             <h2>Sign Up</h2>
@@ -82,9 +82,7 @@ export default {
           }
         });
       if (typeof Storage !== "undefined") {
-        // Store
         sessionStorage.setItem("username", this.username);
-        // Retrieve
         document.getElementById("result").innerHTML = sessionStorage.getItem(
           "username"
         );

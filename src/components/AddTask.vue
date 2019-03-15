@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     deleteTask: async function(event) {
-      //var div = document.getElementById(event.target.id);
       var parentDiv = event.target.parentElement;
       event.target.style.display = "none";
       parentDiv.style.display = "none";
@@ -88,7 +87,6 @@ export default {
     },
     createTaskElement: function(taskID, inputValue, assignedUsers) {
       var i;
-      // Create a new list item when clicking on the "Add" button
       var li = document.createElement("div");
       var taskText = document.createElement("div");
       taskText.className = "taskText";
@@ -122,17 +120,14 @@ export default {
         this.changeEditInput(e);
       };
 
-      // grab all 'x' buttons
       var deleteButton = document.getElementsByClassName("deleteButton");
 
-      // add delete function to each 'x' button
       for (i = 0; i < deleteButton.length; i++) {
         deleteButton[i].onclick = e => {
           this.deleteTask(e);
         };
       }
 
-      // add assignedusers div
       if (assignedUsers !== undefined) {
         for (i = 0; i < assignedUsers.length; i++) {
           var assignedUserList = document.createElement("div");

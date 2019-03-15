@@ -45,14 +45,9 @@
             <div class="col-lg-3" id="textSend-btn" @click="sendMessage"></div>
           </div>
         </div>
-        <!-- 
-      </div>
-      <div class="row">
-        <!-- </div>-->
+
         <div id="eventRight"></div>
-        <!-- if admin, show admin component here -->
         <AddTask v-if="isAdmin"/>
-        <!-- if user, show user component here -->
         <TaskList v-if="isUser"/>
       </div>
     </div>
@@ -62,6 +57,7 @@
 <style>
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import "./style.css";
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
 </style>
 
 <script>
@@ -83,19 +79,17 @@ export default {
       eventdate: "",
       eventtime: "",
       eventlocation: "",
-      page: 0,
       display: false,
       eventCode: "",
       tasks: "",
       newTasks: "",
       isAdmin: false,
       isUser: false,
-      text: "",
       taskID: this.store.taskID,
       socket: io("https://gettogetherserver.herokuapp.com/chat"),
       msg: "",
       allMsgs: [],
-      myRoom: "",
+      myRoom: ""
     };
   },
   methods: {
@@ -140,7 +134,9 @@ export default {
             "You successfully deleted this event",
             "success"
           );
+
           this.$router.push("dashboard");
+          
           var deleteEvent = new FormData();
           deleteEvent.append("eventCode", sessionStorage.getItem("eventCode"));
           var resp = fetch(
@@ -219,7 +215,6 @@ export default {
     this.socket.on("receive_msg", data => {
       this.allMsgs.push(data);
     });
-    console.log(this.allMsgs);
   }
 };
 </script>
