@@ -1,45 +1,79 @@
 <template>
   <div id="eventForm">
     <div id="EventLeftSide">
-      <div id="eventCreate">
-        <h2 id="createTitle" >Create</h2>
-        <div class="eventForm">
-          <h3 class="formnames">Basics</h3>
-          <input type="text" name="eventname" class="EventInputs" placeholder="Event Name" v-model="eventname"><br/><br/>
-<!--
-          <input type="text" name="eventtype" class="EventInputs" style="width:40%" placeholder="Type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="text" name="eventcategory" class="EventInputs" style="width:40%" placeholder="Category"><br/>
-          <br/>
--->
-          <input type="text" name="eventorganizer" class="EventInputs" placeholder="Organizer">
-          <br/>
-          <br/>
-          <h3 class="formnames">Location</h3>
-          <input type="text" name="eventlocation" class="EventInputs" placeholder="Enter address or venue name" v-model="eventlocation">
-          <br/><br/>
-          <h3 class="formnames">Date and Time</h3>
-<!--          <h6>Start Date</h6>-->
-          <input type="date" name="eventdate" v-model="eventdate" class="EventInputs" placeholder="start date" style="width:40%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!--          <h6>Start Time</h6>-->
-          <input type="time" name="eventtime" v-model="eventtime" class="EventInputs" placeholder="start time" style="width:40%"/><br/><br/>
-<!--          <h6>End Date</h6>-->
-          <input type="date" name="eventenddate" v-model="eventenddate" class="EventInputs" placeholder="end date" style="width:40%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!--          <h6>End Time</h6>-->
-          <input type="time" name="eventend" v-model="eventend" class="EventInputs" placeholder="end time" style="width:40%"/>
-          <button @click="insertEvent" id="partyButton">Let's Party!</button>
+      <div class="container eventCreate">
+        <h2>Create</h2>
+        <div class="row eventCol">
+          <div class="col-md-7">
+            <label for="basic">Basics</label>
+            <input
+              type="text"
+              name="eventname"
+              class="EventInputs"
+              placeholder="Event Name"
+              v-model="eventname"
+            >
+            <br>
+            <br>
+          </div>
+          <div class="col-md-7">
+            <input type="text" name="eventorganizer" class="EventInputs" placeholder="Organizer">
+            <br>
+            <br>
+          </div>
+          <div class="col-md-7">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              name="eventlocation"
+              class="EventInputs"
+              placeholder="enter address or venue name"
+              v-model="eventlocation"
+            >
+            <br>
+            <br>
+          </div>
+
+          <div class="col-md-7">
+            <label for="datetime">Date and Time</label>
+
+            <div class="col-md-5">
+              <input type="date" name="eventdate" v-model="eventdate" class="EventInputs" required>
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="time"
+                name="eventtime"
+                v-model="eventtime"
+                class="EventInputs"
+                placeholder="start time"
+                required
+              >
+            </div>
+          </div>
+          <button @click="insertEvent" class="partyButton">Let's Party!</button>
         </div>
       </div>
     </div>
     <div id="EventRightSide" class="vl">
-      <button id="goDashboard" @click="goToDashboard">DASHBOARD</button>
-      <div id="eventCreate">
-        <h2 id="joinTitle">Join</h2>
-      <div id="joinBox">
-        <h3 style="padding-top:10px; padding-left:15px; color:black;" class="formnames">Event code</h3>
-        <div class="signupForm" id="join">
-          <input type="text" name="eventCode" class="EventInputs" placeholder="enter event code...(eg. 876587)" v-model="eventCode">
-          <button @click="joinEvent" id="joinButton">Join Event</button>
-        </div>
+      <button class="goDashboard" @click="goToDashboard">DASHBOARD</button>
+      <div class="container eventCreate">
+        <h2>Join</h2>
+        <div class="row eventCol">
+          <div class="col-md-5">
+            <label for="eventCode">Event Code</label>
+            <input
+              type="text"
+              name="eventCode"
+              class="EventInputs"
+              placeholder="enter event code...(eg.876598)"
+              v-model="eventCode"
+            >
+            <br>
+            <br>
+            <button @click="joinEvent" class="joinButton">Join Event</button>
+          </div>
         </div>
       </div>
     </div>
@@ -64,26 +98,23 @@ export default {
       eventend: "",
       page: 0,
       eventCode: "",
-      userID: this.store.userID
+      userID: this.store.userID,
+      username: this.store.username,
     };
   },
   methods: {
     goToDashboard: function() {
       this.$router.push("dashboard");
     },
-
     insertEvent: async function() {
       var generatedEventCode = "";
-
       //generatedEventCode = randomly generated event code
       for (var i = 0; i < 6; i++) {
         var t = Math.round(Math.random() * 9);
         generatedEventCode += t;
       }
-
       //store generatedEventCode in sessionStorage
       sessionStorage.setItem("eventCode", generatedEventCode);
-
       var eventForm = new FormData();
       eventForm.append("eventname", this.eventname);
       eventForm.append("eventdate", this.eventdate);
@@ -93,7 +124,6 @@ export default {
       eventForm.append("eventend", this.eventend);
       eventForm.append("eventCode", generatedEventCode);
       eventForm.append("userID", sessionStorage.getItem("userID"));
-
       var resp = await fetch(
         "https://gettogetherbcit.herokuapp.com/mysql/insertEvents.php",
         {
@@ -101,9 +131,7 @@ export default {
           body: eventForm
         }
       );
-
       var json = await resp.json();
-
       if (json) {
         this.eventCode = generatedEventCode;
         this.joinEvent();
@@ -112,13 +140,12 @@ export default {
         alert("Create Failed. Try Again");
       }
     },
-    joinEvent: async function() {
+    joinEvent: async function(rn) {
       var joinForm = new FormData();
       joinForm.append("userID", sessionStorage.getItem("userID"));
       joinForm.append("eventCode", this.eventCode);
       console.log;
       sessionStorage.setItem("eventCode", this.eventCode);
-
       var resp = await fetch(
         "https://gettogetherbcit.herokuapp.com/mysql/joinEvent.php",
         {
@@ -126,7 +153,6 @@ export default {
           body: joinForm
         }
       );
-
       var json = await resp.json();
       if (json) {
         this.$router.push("eventpage");

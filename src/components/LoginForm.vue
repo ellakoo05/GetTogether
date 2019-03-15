@@ -26,7 +26,7 @@
                 v-model="password"
               >
               <button @click="LogIn" class="partyButton">let's party!</button>
-              <router-link to="/signuppage" tag="button" id="signupButton">sign up</router-link>
+              <router-link to="/signuppage" tag="button" class="signupButton">sign up</router-link>
             </div>
           </div>
         </div>

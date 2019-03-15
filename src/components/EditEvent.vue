@@ -1,11 +1,12 @@
 <template>
-  <div id="eventForm">
+  <div id="editForm">
+    <div id="edit"></div>
     <div class="container">
       <div class="row">
-        <div id="eventCreate">
-          <h3 id="pageTitle">{{eventTitle}}</h3>
-          <div class="eventForm">
-            <h3 class="formnames">Basics</h3>
+        <div class="col-lg-5 EditEvent">
+          <h2>{{eventTitle}}</h2>
+          <div class="col-lg-12">
+            <label for="basic">Basics</label>
             <input
               type="text"
               name="eventname"
@@ -15,26 +16,12 @@
             >
             <br>
             <br>
-            <input
-              type="text"
-              name="eventtype"
-              class="EventInputs"
-              style="width:40%"
-              placeholder="Type"
-            > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input
-              type="text"
-              name="eventcategory"
-              class="EventInputs"
-              style="width:40%"
-              placeholder="Category"
-            >
-            <br>
-            <br>
             <input type="text" name="eventorganizer" class="EventInputs" placeholder="Organizer">
-            <br>
-            <br>
-            <h3 class="formnames">Location</h3>
+          </div>
+          <br>
+
+          <div class="col-lg-12">
+            <label for="location">Location</label>
             <input
               type="text"
               name="eventlocation"
@@ -42,46 +29,33 @@
               placeholder="enter address or venue name"
               v-model="eventlocation"
             >
-            <br>
-            <br>
-            <h3 class="formnames">Date and Time</h3>
-            <input
-              type="date"
-              name="eventdate"
-              v-model="eventdate"
-              class="EventInputs"
-              placeholder="start date"
-              style="width:40%"
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <br>
+
+          <div class="col-lg-12">
+            <label for="datetime">Date and Time</label>
+          </div>
+
+          <br>
+          <br>
+
+          <div class="col-lg-6">
+            <input type="date" name="eventdate" v-model="eventdate" class="EventInputs" required>
+          </div>
+
+          <div class="col-lg-6">
             <input
               type="time"
               name="eventtime"
               v-model="eventtime"
               class="EventInputs"
               placeholder="start time"
-              style="width:40%"
+              required
             >
-            <br>
-            <br>
-            <input
-              type="date"
-              name="eventenddate"
-              v-model="eventenddate"
-              class="EventInputs"
-              placeholder="end date"
-              style="width:40%"
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input
-              type="time"
-              name="eventend"
-              v-model="eventend"
-              class="EventInputs"
-              placeholder="end time"
-              style="width:40%"
-            >
-            <button class="done" @click="goBack">Back</button>
-            <button class="done" @click="UpdateEvent">Done</button>
           </div>
+
+          <button class="edit-btn" @click="goBack">Back</button>
+          <button class="edit-btn" @click="UpdateEvent">Done</button>
         </div>
       </div>
     </div>

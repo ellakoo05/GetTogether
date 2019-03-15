@@ -1,11 +1,11 @@
 <template>
   <div id="tasklist">
     <div id="eventRight">
-      <div class="displayItems" v-if="isTasksNotEmpty" v-for="item in newTasks">
+      <div class="displayItems" v-if="isTasksNotEmpty" v-for="item in newTasks" v-bind:key="item">
         <div class="listItemsForUsers">
           {{item.tasks}}
           <br>
-          <div class="userList" v-for="user in item.assignedUsers">
+          <div class="userList" v-for="user in item.assignedUsers" v-bind:key="user">
             <div>{{user}}</div>
           </div>
           <button class="taskSignup" @click="selectTask(item.id)">SELECT</button>

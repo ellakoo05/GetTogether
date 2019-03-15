@@ -1,45 +1,76 @@
 <template>
   <div id="event">
-    <div id="eventLeft">
-      <div id="eventInfo" v-for="item in event">
-        <div id="eventnameInfo">{{item.eventname}}</div>
-        <div id="eventdateInfo">
-          <span style="font-weight: 600">When:</span>
-          {{item.eventdate}}
+    <div class="container">
+      <div class="row">
+        <div id="eventLeft">
+          <div id="eventInfo" v-for="item in event" v-bind:key="item">
+            <div id="eventnameInfo">{{item.eventname}}</div>
+            <div id="eventdateInfo">
+              <span style="font-weight: 600">When:</span>
+              {{item.eventdate}}
+            </div>
+            <div id="eventtimeInfo">
+              <span style="font-weight: 600">Time:</span>
+              {{item.eventtime}}
+            </div>
+            <div id="eventlocationInfo">
+              <span style="font-weight: 600">Where:</span>
+              {{item.eventlocation}}
+            </div>
+            <div v-if="isAdmin" id="eventCodeInfo">
+              <span style="font-weight: 600">Event Code:</span>
+              {{item.eventCode}}
+            </div>
+            <button class="goDashboard-btn" @click="goToDashboard">DASHBOARD</button>
+            <button v-if="isUser" @click="refreshPage" class="goRefresh-btn">REFRESH</button>
+            <button v-if="isAdmin" class="goEdit-btn" @click="goEdit">EDIT EVENT</button>
+            <button v-if="isAdmin" class="goDelete-btn" @click="deleteEvent">DELETE EVENT</button>
+          </div>
+
+          <div class="col-lg-11" id="chatBox">
+            <div class="chatContain">
+              <div
+                class="pl-3 pr-3 pb-2 pt-2 msg_container"
+                v-for="m in allMsgs"
+              >{{m.username}}: {{m.msg}}</div>
+            </div>
+
+            <input
+              v-model="msg"
+              class="col-lg-10"
+              id="type"
+              type="text"
+              placeholder="Type your message here..."
+            >
+            <div class="col-lg-3" id="textSend-btn" @click="sendMessage"></div>
+          </div>
         </div>
-        <div id="eventtimeInfo">
-          <span style="font-weight: 600">Time:</span>
-          {{item.eventtime}}
-        </div>
-        <div id="eventlocationInfo">
-          <span style="font-weight: 600">Where:</span>
-          {{item.eventlocation}}
-        </div>
-        <div v-if="isAdmin" id="eventCodeInfo">
-          <span style="font-weight: 600">Event Code:</span>
-          {{item.eventCode}}
-        </div>
+        <!-- 
       </div>
-      <button v-if="isAdmin" id="deleteEvent" @click="deleteEvent">DELETE</button>
-      <button id="goToDashboard" @click="goToDashboard">DASHBOARD</button>
-      <button v-if="isUser" @click="refreshPage" id="refreshPage">REFRESH</button>
-      <button v-if="isAdmin" id="editEvent" @click="goEdit">EDIT EVENT</button>
+      <div class="row">
+        <!-- </div>-->
+        <div id="eventRight"></div>
+        <!-- if admin, show admin component here -->
+        <AddTask v-if="isAdmin"/>
+        <!-- if user, show user component here -->
+        <TaskList v-if="isUser"/>
+      </div>
     </div>
-    <div id="eventRight"></div>
-    <!--  if admin, show admin component here-->
-    <AddTask v-if="isAdmin"/>
-    <!-- if user, show user component here -->
-    <TaskList v-if="isUser"/>
   </div>
 </template>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import "./style.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 </style>
+
 <script>
 import AddTask from "@/components/AddTask.vue";
 import TaskList from "@/components/TaskList.vue";
+
+import io from "socket.io-client";
+
 export default {
   name: "eventDetails",
   components: {
@@ -61,10 +92,27 @@ export default {
       isAdmin: false,
       isUser: false,
       text: "",
-      taskID: this.store.taskID
+      taskID: this.store.taskID,
+      socket: io("http://localhost:8880/chat"),
+      msg: "",
+      allMsgs: [],
+      myRoom: ""
     };
   },
   methods: {
+    sendMessage: function() {
+      this.username = sessionStorage.getItem("username");
+
+      var obj = {
+        username: this.username,
+        msg: this.msg,
+        roomName: this.myRoom
+      };
+
+      this.socket.emit("send_msg", obj);
+      this.store.username = this.username;
+      this.msg = "";
+    },
     refreshPage: function() {
       this.$router.go();
     },
@@ -159,6 +207,20 @@ export default {
 
     var json = await resp.json();
     this.newTasks = json;
+
+    this.myRoom = sessionStorage.getItem("eventCode");
+
+    var obj = {
+      roomName: this.myRoom
+    };
+
+    this.socket.emit("join_room", obj);
+  },
+  mounted() {
+    this.socket.on("receive_msg", data => {
+      this.allMsgs.push(data);
+    });
+    console.log(this.allMsgs);
   }
 };
 </script>

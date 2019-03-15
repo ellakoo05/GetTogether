@@ -2,7 +2,7 @@
   font-family: Nunito!important;
 }
 
-#EventLeftSide {
+#LeftSide {
   font-family: 'Nunito';
   width: 50vw;
   height: 100vh;
@@ -10,42 +10,88 @@
   text-align: left;
   color: black;
   left: 0;
-  top: 0;
-  border-right: 2px solid rgb(132, 132, 132);
-}
-.eventForm {
-  text-align: left;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 200px;
-
+  padding: 0px;
+  font-weight: 400;
 }
 
+#editForm .col-lg-5{
+  margin: auto;
+  top: 50px;
+}
+
+#EventLeftSide .col-md-7 {
+  margin: auto;
+}
+
+.editCol .col-lg-6{
+  margin: auto;
+}
 .eventCol {
-  margin-top: 70px;
+  margin-top: 40px;
 }
+
 #EventLeftSide label {
   font-size: 26px;
-  text-align: left;
-  border: solid 1px 0.9 black;
-  width: 95%;
-  height: 50px;
-  padding: 10px;
-  font-size: 15px;
-  font-family: Nunito;
+  float: left;
 }
 
-#partyButton {
- font-size: 18px;
-  font-family: Nunito;
-  
-  border-radius: 40px;
-  width: 20%;
-  height: 40px;
+.EditEvent label {
+  font-size: 26px;
+  float: left;
+}
+
+#edit {
+  background:
+   url("../assets/bg2.jpeg");
+  background-size: cover;
+  background-position: bottom;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+#EventRightSide label {
+  font-size: 26px;
+  text-align: left;
+  float: left;
+}
+
+
+#EventLeftSide .col-md-5 {
+  padding: 0px;
+}
+
+#EventRightSide .col-md-5 {
+  margin:auto;
+  margin-top: 100px;
+}
+
+.date-time {
+  display: inline-block;
+  position: relative;
+}
+
+#EventRightSide {
+  font-family: 'Nunito';
+  width: 50vw;
+  height: 100vh;
   position: absolute;
   text-align: center;
   color: black;
   right: 0;
+  margin: auto;
+  padding: 0px;
+}
+
+#EventLeftSide {
+  font-family: 'Nunito';
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  color: black;
+  left: 0;
   margin: auto;
   padding: 0px;
 }
@@ -61,6 +107,18 @@
   height: 400px;
 }
 
+.editing {
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 450px;
+  height: 400px;
+  background-color: red;
+}
+
 #signupBox {
   width: 300px;
   height: 330px;
@@ -69,32 +127,106 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  top: 540px;
-  background-color: lightsteelblue;
-  color: #2e2e2e;
+  position: absolute;
+  text-align: center;
 }
 
-#joinButton {
-  font-size: 18px;
-  font-family: Nunito;
-  border-radius: 40px;
-  width: 40%;
-  height: 40px;
+.eventForm .col-lg-12{
+  padding: 0px;
+}
+
+.eventForm .col-lg-5{
+  padding: 0px;
+}
+
+.eventImage {
+  position: relative;
+  width: 400px;
+  background-image: url("../assets/eventImg.jpeg");
+  background-position: top;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.eventDetail{
+  height: 100%;
+  width: 100%;
+  display: none;
+  border-radius: 20px;
+  transition: .5s ease;
+  background-color:lightblue;
+}
+
+.eventDetailText {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  top: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.eventSelect-btn {
   position: absolute;
+  width: 150px;
+  height: 40px;
+  border-radius: 35px;
+  background-color: white;
+  color: dimgray;
+  border: 3px solid steelblue;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  top: 0;
-  background-color: lightsteelblue;
-  color: #2e2e2e;
+  top: 120px;
 }
 
-#rightSide {
-  height: 100vh;
+.eventSelect-btn:hover{
+  background-color: steelblue;
+  color: white;
+}
+
+.newEvents:hover .eventDetail{
+  display: block;
+}
+
+.title{
+  left: 0;
   right: 0;
-  height: 100%;
-/*  position: fixed;*/
+  bottom: 0;
+  margin: auto;
+  top: 120px;
+}
+
+.EventInputs {
+  text-align: left;
+  border: solid 1px lightgray;
+  width: 100%;
+  height:40px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Nunito;
+  display: inline-block;
+}
+
+.joinButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border-radius: 10px;
+  border-radius: 50px;
+  width: 100px;
+  border: 2px solid lightsteelblue;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: dimgray;
+  bottom: 40;
+  margin: auto;
+  background-color: white;
 }
 
 #joinBox {
@@ -110,6 +242,10 @@
   text-align: left;
 }
 
+.vl {
+  border-left: 2px solid gray;
+  height: 100px;
+}
 
 @media only screen and (max-width: 500px) {
 
@@ -119,6 +255,13 @@
     width: 100%;
     top: 0;
     left: 0;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  #editForm .col-lg-5 {
+    position: relative;
+    margin: 30px;
   }
 }
 
@@ -141,6 +284,7 @@
 #eventInfo {
   font-size: 26px;
   margin: 50px;
+  margin-top:20px;
   text-align: left;
 }
 
@@ -242,18 +386,47 @@
   font-family: Nunito;
 }
 
-#signupButton {
+.signupButton {
   font-size: 15px;
   font-family: Nunito;
-  border: solid 1px dimgray;
-  border-radius: 10px;
-  width: 40%;
-  height: 25px;
+  border-radius: 50px;
+  width: 200px;
+  height: 35px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
+  top:0;
+  border: 2px solid lightsteelblue;
   margin: auto;
+  margin-bottom:0px;
+  color: dimgray;
+  background-color: white;
+}
+
+.partyButton {
+  font-size: 15px;
+  font-family: Nunito;
+  border-radius: 50px;
+  width: 200px;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid lightsteelblue;
+  margin: auto;
+  margin-bottom: 40px;
+  color: dimgray;
+  background-color: white;
+}
+
+.partyButton:hover,
+.signupButton:hover,
+.joinButton:hover {
+  background-color: lightsteelblue;
+  color: white;
+  border: solid 2px lightsteelblue;
 }
 
 #signupBox {
@@ -318,17 +491,6 @@ body {}
   margin-left: auto;
   margin-right: auto;
   width: 25%;
-}
-
-#createTitle{
-  color: black;
-  font-weight: 500;
-  margin-top: 35px;
-}
-
-#joinTitle{
-  color: black;
-  font-weight: 500;
 }
 
 #anim {
@@ -494,20 +656,25 @@ body {
   font-family: 'Nunito';
 }
 
-.done {
-  display: block;
+.edit-btn {
   width: 100px;
   height: 40px;
   font-family: 'Nunito', sans-serif, bold;
   font-size: 1em;
   font-weight: 600;
-  border: 3px solid #333;
-  border-radius: 500px;
+  border: 3px solid lightsteelblue;
+  border-radius: 50px;
   margin: auto;
   display: inline-block;
   margin-top: 30px;
   position: relative;
-  margin-left: 70px;
+  margin-left: 20px;
+  color: dimgray;
+}
+
+.edit-btn:hover {
+  background-color: lightsteelblue;
+  color: white;
 }
 
 .btn {
@@ -535,13 +702,46 @@ body {
   color: dimgray;
 }
 
+.EditEvent.col-md-7,
+.EditEvent .col-lg-10{
+  padding: 0px;
+}
+
+.EditEvent .col-lg-6 {
+  display: inline-block;
+}
+
 .eventCreate {
   width: 500px;
   height: 100vh;
   margin: auto;
-  padding: 0px;
-  text-align: center;
   font-family: Nunito;
+}
+
+.EditEvent h2 {
+  text-align: center;
+  margin: auto;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.EditEvent {
+  border: solid 5px dimgray;
+  background-color: white;
+  width: 500px;
+  height: 600px;
+  margin: auto;
+  font-family: Nunito;
+  filter: opacity(1);
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 40px;
 }
 
 .eventCreate h2 {
@@ -565,7 +765,6 @@ html {
 h2 {
   padding-left: 60px;
   padding-top: 30px;
-  color: black;
 }
 
 a {
@@ -598,12 +797,13 @@ a {
   font-family: Nunito;
 }
 
-#banner {
+
+#banner{
   margin: 0;
   background-color: #38a3ff;
   text-align: center;
-  height: 70px;
-  color: white;
+  height: auto;
+  padding: 10px;
 }
 
 #events {
@@ -679,7 +879,7 @@ body {
   background: linear-gradient(
     rgba(0,0,0, 0.1),
     rgba(0,0,0, 0.2)),
-    url("../assets/ocean.jpeg");
+    rgb(255, 238, 248);
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -782,11 +982,8 @@ body {
 }
 
 #msgs {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 75vw;
-  height: 100vh;
+  position: relative;
+  margin:auto;
 }
 
 h1 {
@@ -931,25 +1128,63 @@ hr {
 }
 
 #TextInput {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
-  width: 90vw;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 600px;
   height: 20px;
-  padding: 5px;
+  margin:auto;
 }
 
 #type {
-  margin: 0;
   border: 1px solid lightgray;
-  border-radius: 500px;
-  width: 75%;
+  border-radius: 50px;
   padding: 10px;
-  float: left;
+  left: 20px;
+  bottom: 20px;
+  position: absolute;
   font-size: 16px;
 }
 
-#goDashboard {
+#eventChat {
+  color: red;
+  width: 50vw;
+  height: 400px;
+  bottom: 0px;
+  position: absolute;
+  border: 2px solid black;
+  z-index: 50000;
+}
+
+#textSend-btn {
+  background-image: url("../assets/forward.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  right: 30px;
+  bottom: 30px;
+  position: absolute;
+}
+
+.chatlog {
+  border-radius: 10px;
+  border: 1px solid blue;
+  width: auto;
+}
+
+.msg_container{
+  border-radius: 25px;
+  background-color: lightsteelblue;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  width: 250px;
+  text-align: left;
+}
+
+.goDashboard {
   width: 120px;
   height: 30px;
   background-color: lightsteelblue;
@@ -1007,21 +1242,49 @@ hr {
   z-index: 1000;
 }
 
-#goToDashboard {
+
+.goDashboard-btn {
   width: 120px;
   height: 30px;
   background-color: lightsteelblue;
-  position: absolute;
-  left: 50px;
+  margin: auto;
   border-radius: 35px;
   border: none;
   color: white;
   padding: 5px;
-  bottom: 70px;
   text-align: center;
+  font-size: 16px;
 }
 
-#editEvent {
+#chatBox {
+  border: 3px solid lightsteelblue;
+  border-radius: 40px;
+  padding: 50px;
+  margin: auto;
+  height: 380px;
+}
+
+.chatContain {
+  overflow: scroll;
+  width: 100%;
+  height:230px;
+}
+
+.goEdit-btn {
+  width: 120px;
+  height: 30px;
+  background-color: lightsteelblue;
+  border-radius: 35px;
+  border: none;
+  color: white;
+  padding: 5px;
+  bottom: 120px;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.editEventButton {
   width: 120px;
   height: 30px;
   background-color: lightsteelblue;
@@ -1049,8 +1312,31 @@ hr {
   text-align: center;
 }
 
-#deleteEvent,
-#refreshPage {
+.goDelete-btn,
+.goRefresh-btn {
+  width: 125px;
+  height: 30px;
+  background-color: lightsteelblue;
+  color: white;
+  border: none;
+  border-radius: 35px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.goDelete-btn:hover,
+.goDashboard:hover,
+.goRefresh-btn:hover,
+#goBack:hover,
+.goEdit-btn:hover,
+.goDashboard-btn:hover {
+  background-color: lightblue;
+  width: 130px;
+}
+
+#goDashboard {
   width: 120px;
   height: 30px;
   background-color: lightsteelblue;
@@ -1059,20 +1345,8 @@ hr {
   border: none;
   border-radius: 35px;
   left: 50px;
-  bottom: 20px;
   padding: 5px;
   text-align: center;
-}
-
-#deleteEvent:hover,
-#goDashboard:hover,
-#refreshPage:hover,
-#goBack:hover,
-#editEvent:hover,
-#goToDashboard:hover {
-  background-color: lightblue;
-  width: 125px;
-  height: 35px;
 }
 
 #send {
@@ -1083,14 +1357,6 @@ hr {
 
 body{
   font-family: 'Nunito';
-}
-
-#banner{
-  margin: 0;
-  background-color: #38a3ff;
-  text-align: center;
-  height: auto;
-  padding: 10px;
 }
 
 #new{
@@ -1107,9 +1373,10 @@ h2{
   width: 200px;
 }
 
-.col-md-2{
-  height: 70px;
-  background-color: skyblue;
+.newE{
+  height: 200px;
+  width: 250px;
+  background-image: url("../assets/eventRandom1.jpeg");
   margin-left: auto;
   margin-top: 40px;
   margin-right: auto;
@@ -1117,8 +1384,38 @@ h2{
   font-size: 22px;
   padding: 20px;
   border-radius: 8px;
+  display: inline-block;
 }
 
-.col-md-2:hover {
+.newE:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.eventInfoTitle {
+  font-size: 26px;
+  padding: 60px;
+  color: dimgray;
+  font-weight: 600;
+}
+
+.createNew-btn {
+  width: 200px;
+  height: 50px;
+  background-color: lightsteelblue;
+  position: absolute;
+  right: 0;
+  top: 200px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 35px;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.createNew-btn:hover{
+  background-color: #b784a7;
 }
