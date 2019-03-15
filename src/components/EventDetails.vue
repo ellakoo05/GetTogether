@@ -92,7 +92,7 @@ export default {
       isUser: false,
       text: "",
       taskID: this.store.taskID,
-      socket: io("http://localhost:8880/chat"),
+      socket: io("https://gettogetherserver.herokuapp.com/chat"),
       msg: "",
       allMsgs: [],
       myRoom: "",
