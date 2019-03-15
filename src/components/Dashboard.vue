@@ -10,32 +10,27 @@
     <h1 id="yourEvents">Your Events</h1>
 
     <div class="container">
-      <div class="row align-items-start">
-        <!-- <div class="col-md-3 newEvents"> -->
-          <div @click="goToEvent(item.eventCode)" class="newE" v-for="item in dashboardList">
-      {{item.eventname}}
-    </div>
-          <!-- <div
-            class="eventImage col-lg-12 eventInfoTitle"
-            @click="goToEvent(item.eventCode)"
-            v-for="item in dashboardList"
-          >{{item.eventname}}
-
-                    <div
-            class="eventDetail"
-            @click="goToEvent(item.eventCode)"
-            v-for="item in dashboardList"
-            v-bind:key="item">
-            <div class="eventDetailText">{{item.eventlocation}}</div>
-            <div class="eventDetailText">{{item.eventdate}}</div>
-            <div class="eventDetailText">{{item.eventtime}}</div>
-            <button class="eventSelect-btn">Go to Event</button>
+      <div class="row">
+        <div
+          @click="goToEvent(item.eventCode)"
+          class="eventImage col-lg-2 eventInfoTitle"
+          v-for="item in dashboardList"
+        >
+          {{item.eventname}}
+          <div @click="goToEvent(item.eventCode)" class="eventDetail">
+            {{item.eventname}}
+            <br>
+            {{item.eventlocation}}
+            <br>
+            {{item.eventdate}}
+            <br>
+            {{item.eventtime}}
+            <br>
+            <button @click="goToEvent(item.eventCode)" class="eventSelect-btn">Go to Event</button>
           </div>
-          </div> -->
-        <!-- </div> -->
+        </div>
       </div>
-
-      <button @click="createNew" type="button" class="createNew-btn">Create New</button>
+      <button @click="createNew" class="createNew-btn">Create New</button>
     </div>
   </div>
 </template>

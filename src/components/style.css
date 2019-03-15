@@ -1,5 +1,5 @@
 * {
-  font-family: Nunito!important;
+  font-family: Nunito !important;
 }
 
 #LeftSide {
@@ -14,7 +14,7 @@
   font-weight: 400;
 }
 
-#editForm .col-lg-5{
+#editForm .col-lg-5 {
   margin: auto;
   top: 50px;
 }
@@ -23,9 +23,10 @@
   margin: auto;
 }
 
-.editCol .col-lg-6{
+.editCol .col-lg-6 {
   margin: auto;
 }
+
 .eventCol {
   margin-top: 40px;
 }
@@ -42,7 +43,7 @@
 
 #edit {
   background:
-   url("../assets/bg2.jpeg");
+    url("../assets/bg2.jpeg");
   background-size: cover;
   background-position: bottom;
   opacity: 0.4;
@@ -64,7 +65,7 @@
 }
 
 #EventRightSide .col-md-5 {
-  margin:auto;
+  margin: auto;
   margin-top: 100px;
 }
 
@@ -131,30 +132,41 @@
   text-align: center;
 }
 
-.eventForm .col-lg-12{
+.eventForm .col-lg-12 {
   padding: 0px;
 }
 
-.eventForm .col-lg-5{
+.eventForm .col-lg-5 {
   padding: 0px;
 }
 
 .eventImage {
-  position: relative;
-  width: 400px;
   background-image: url("../assets/eventImg.jpeg");
   background-position: top;
+  display: inline-block;
   height: 200px;
+  margin-left: 10px;
+  margin-top: 40px;
+  margin-right: 10px;
+  color: white;
+  font-size: 22px;
   border-radius: 20px;
 }
 
-.eventDetail{
-  height: 100%;
-  width: 100%;
-  display: none;
+.eventDetail {
+  opacity: 0;
   border-radius: 20px;
   transition: .5s ease;
-  background-color:lightblue;
+  background-color: lightblue;
+  color: white;
+  font-size: 18px;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
 }
 
 .eventDetailText {
@@ -170,7 +182,6 @@
 }
 
 .eventSelect-btn {
-  position: absolute;
   width: 150px;
   height: 40px;
   border-radius: 35px;
@@ -184,16 +195,16 @@
   top: 120px;
 }
 
-.eventSelect-btn:hover{
+.eventSelect-btn:hover {
   background-color: steelblue;
   color: white;
 }
 
-.newEvents:hover .eventDetail{
-  display: block;
+.eventImage:hover .eventDetail {
+  opacity: 1;
 }
 
-.title{
+.title {
   left: 0;
   right: 0;
   bottom: 0;
@@ -205,7 +216,7 @@
   text-align: left;
   border: solid 1px lightgray;
   width: 100%;
-  height:40px;
+  height: 40px;
   padding: 10px;
   font-size: 14px;
   font-family: Nunito;
@@ -284,7 +295,7 @@
 #eventInfo {
   font-size: 26px;
   margin: 50px;
-  margin-top:20px;
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -396,10 +407,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  top:0;
+  top: 0;
   border: 2px solid lightsteelblue;
   margin: auto;
-  margin-bottom:0px;
+  margin-bottom: 0px;
   color: dimgray;
   background-color: white;
 }
@@ -703,7 +714,7 @@ body {
 }
 
 .EditEvent.col-md-7,
-.EditEvent .col-lg-10{
+.EditEvent .col-lg-10 {
   padding: 0px;
 }
 
@@ -798,7 +809,7 @@ a {
 }
 
 
-#banner{
+#banner {
   margin: 0;
   background-color: #38a3ff;
   text-align: center;
@@ -876,9 +887,8 @@ body {
   margin: auto;
   padding: 80px;
   color: black;
-  background: linear-gradient(
-    rgba(0,0,0, 0.1),
-    rgba(0,0,0, 0.2)),
+  background: linear-gradient(rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.2)),
     rgb(255, 238, 248);
   background-size: cover;
   background-position: top;
@@ -893,9 +903,8 @@ body {
   margin: auto;
   padding: 80px;
   color: black;
-  background: linear-gradient(
-    rgba(0,0,0, 0.1),
-    rgba(0,0,0, 0.2)),
+  background: linear-gradient(rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.2)),
     url("../assets/ocean.jpeg");
   background-size: cover;
   background-position: top;
@@ -930,7 +939,7 @@ body {
 .taskSignup:hover {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  border:solid 1px white;
+  border: solid 1px white;
 }
 
 .taskSignup {
@@ -958,7 +967,7 @@ body {
   margin: 5px;
   text-align: center;
   font-size: 12px;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   color: dimgray;
   padding: 8px;
   display: none;
@@ -970,7 +979,7 @@ body {
   height: 35px;
   text-align: center;
   font-size: 12px;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   color: dimgray;
   padding: 8px;
   display: none;
@@ -983,7 +992,7 @@ body {
 
 #msgs {
   position: relative;
-  margin:auto;
+  margin: auto;
 }
 
 h1 {
@@ -1062,7 +1071,7 @@ ul li.checked::before {
 
 .header {
   /* background-color: #36a4f4; */
-  background-color:lightsteelblue;
+  background-color: lightsteelblue;
   padding: 30px 40px;
   color: white;
 }
@@ -1134,7 +1143,7 @@ hr {
   right: 0px;
   width: 600px;
   height: 20px;
-  margin:auto;
+  margin: auto;
 }
 
 #type {
@@ -1174,14 +1183,27 @@ hr {
   width: auto;
 }
 
-.msg_container{
+.msg_container {
+  background-color:#56bfb8;
+  border-radius:25px;
+  margin-left:auto;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding:5px;
+  position:relative;
+  text-align:left;
+  width:250px;
+}
+
+.msg_container2 {
   border-radius: 25px;
-  background-color: lightsteelblue;
+  background-color: red;
   padding: 10px;
   position: relative;
   margin-bottom: 10px;
   width: 250px;
   text-align: left;
+  float: left;
 }
 
 .goDashboard {
@@ -1234,7 +1256,7 @@ hr {
   opacity: .8;
   width: 40px;
   height: 40px;
-  top:0px;
+  top: 0px;
   background-position: 51%;
   background-size: 45%;
   background-repeat: no-repeat;
@@ -1267,7 +1289,8 @@ hr {
 .chatContain {
   overflow: scroll;
   width: 100%;
-  height:230px;
+  height: 230px;
+  display: block;
 }
 
 .goEdit-btn {
@@ -1355,25 +1378,26 @@ hr {
   padding: 5px;
 }
 
-body{
+body {
   font-family: 'Nunito';
 }
 
-#new{
+#new {
   text-align: center;
   margin: 50px;
 }
 
-h2{
+h2 {
   text-align: center;
   margin: 30px;
   font-weight: 600;
 }
-#title{
+
+#title {
   width: 200px;
 }
 
-.newE{
+.newE {
   height: 200px;
   width: 250px;
   background-image: url("../assets/eventRandom1.jpeg");
@@ -1402,7 +1426,6 @@ h2{
   width: 200px;
   height: 50px;
   background-color: lightsteelblue;
-  position: absolute;
   right: 0;
   top: 200px;
   bottom: 0;
@@ -1416,6 +1439,6 @@ h2{
   font-size: 18px;
 }
 
-.createNew-btn:hover{
+.createNew-btn:hover {
   background-color: #b784a7;
 }

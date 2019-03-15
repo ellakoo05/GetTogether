@@ -62,7 +62,6 @@
 <style>
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import "./style.css";
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 </style>
 
 <script>
@@ -96,7 +95,7 @@ export default {
       socket: io("http://localhost:8880/chat"),
       msg: "",
       allMsgs: [],
-      myRoom: ""
+      myRoom: "",
     };
   },
   methods: {
