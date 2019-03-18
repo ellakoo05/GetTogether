@@ -1275,15 +1275,19 @@ hr {
   border: 3px solid lightsteelblue;
   border-radius: 40px;
   padding: 50px;
-  margin: auto;
-  height: 380px;
+  margin: 10px;
+  height: 700px;
+  width: 49%;
+  position: fixed;
+  bottom: 0;
 }
 
 .chatContain {
   overflow: scroll;
   width: 100%;
-  height: 230px;
+  height: 550px;
   display: block;
+  border-radius: 50px;
 }
 
 .goEdit-btn {
