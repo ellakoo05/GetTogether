@@ -7,7 +7,6 @@ import EventForm from './components/EventForm.vue'
 import EventDetails from './components/EventDetails.vue'
 import EditEvent from './components/EditEvent.vue'
 import Dashboard from './components/Dashboard.vue'
-import Chat from './components/groupChat.vue'
 
 Vue.use(Router)
 
@@ -43,11 +42,6 @@ export default new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
-    },
-    {
-      path: '/chat',
-      name: 'chat',
-      component: Chat
     },
     {
       path: '/eventpage',
