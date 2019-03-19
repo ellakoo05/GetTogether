@@ -1,11 +1,11 @@
 <template>
-  <div id="register">
+  <div id="signup">
     <div class="container">
       <div class="row">
         <div id="LeftSide" class="col-lg-6"></div>
-        <div id="rightSide">
-          <div id="signupBox">
-            <h2>Sign Up</h2>
+        <div id="RightSide" class="col-lg-6">
+          <div class="signupBox">
+            <h2>sign up</h2>
             <hr style="width: 300px;">
             <div class="signupForm">
               <input
@@ -14,6 +14,8 @@
                 class="inputs"
                 placeholder="username"
                 v-model="username"
+                required
+                autofocus
               >
               <input type="text" name="email" class="inputs" placeholder="email" v-model="email">
               <input
@@ -23,13 +25,8 @@
                 placeholder="password"
                 v-model="password"
               >
-              <input
-                type="password"
-                name="cfpassword"
-                class="inputs"
-                placeholder="confirm password"
-              >
-              <button @click="insertUser" id="signupButton">sign up</button>
+              <button @click="insertUser" class="signupButton">sign up</button>
+              <router-link to="/loginpage" tag="button" class="backtoLogin">go back</router-link>
             </div>
           </div>
         </div>
@@ -56,11 +53,13 @@ export default {
     return {
       username: "",
       email: "",
-      password: "",
-      page: 0
+      password: ""
     };
   },
   methods: {
+    backtoLogin: function() {
+      this.$router.push("loginpage");
+    },
     insertUser: async function() {
       var userForm = new FormData();
       userForm.append("username", this.username);

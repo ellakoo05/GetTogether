@@ -1,8 +1,9 @@
 <template>
-  <div id="event">
+  <div id="eventdetails_page">
     <div class="container">
       <div class="row">
         <div id="eventLeft">
+          <div id="leftBox">
           <div id="eventInfo" v-for="item in event" v-bind:key="item">
             <div id="eventnameInfo">{{item.eventname}}</div>
             <div id="eventdateInfo">
@@ -27,23 +28,38 @@
             <button v-if="isAdmin" class="goDelete-btn" @click="deleteEvent">DELETE EVENT</button>
           </div>
 
-          <div class="col-lg-11" id="chatBox">
+          <div class="chatBox">
             <div class="chatContain">
-              <div
+              <div v-for="m in allMsgs">
+                
+                <div 
                 class="pl-3 pr-3 pb-2 pt-2 msg_container"
-                v-for="m in allMsgs"
-              >{{m.username}}: {{m.msg}}</div>
+                v-if="m.username === username">
+                  {{m.username}}: {{m.msg}}
+                </div>
+
+                <div v-else
+                class="pl-3 pr-3 pb-2 pt-2 msg_container2">
+                  {{m.username}}: {{m.msg}}
+                </div>
+                
+              </div>
+
             </div>
 
+            <div class="col-lg-12">
             <input
               v-model="msg"
-              class="col-lg-10"
+              class="col-lg-12"
               id="type"
               type="text"
-              placeholder="Type your message here..."
+              placeholder="Type your message here and press enter..."
+              @keyup.enter="sendMessage"
             >
-            <div class="col-lg-3" id="textSend-btn" @click="sendMessage"></div>
+            </div>
+                          </div>
           </div>
+        </div>
         </div>
 
         <div id="eventRight"></div>
@@ -51,7 +67,6 @@
         <TaskList v-if="isUser"/>
       </div>
     </div>
-  </div>
 </template>
 
 <style>
@@ -136,7 +151,7 @@ export default {
           );
 
           this.$router.push("dashboard");
-          
+
           var deleteEvent = new FormData();
           deleteEvent.append("eventCode", sessionStorage.getItem("eventCode"));
           var resp = fetch(

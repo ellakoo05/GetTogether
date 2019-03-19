@@ -48,7 +48,6 @@ export default {
       userID: this.store.userID,
       username: "",
       password: "",
-      page: 0
     };
   },
   methods: {
@@ -56,7 +55,6 @@ export default {
       var userForm = new FormData();
       userForm.append("username", this.username);
       userForm.append("password", this.password);
-
       var resp = await fetch(
         "https://gettogetherbcit.herokuapp.com/mysql/selectUser.php",
         {
@@ -65,15 +63,19 @@ export default {
         }
       );
       var json = await resp.json();
+      if (json.status) {
+        this.store.userID = json.id;
+        this.store.username = json.username;
+        this.store.email = json.email;
 
-      if (typeof Storage !== "undefined") {
-        sessionStorage.setItem("username", json.username);
-        sessionStorage.setItem("userID", json.id);
-        sessionStorage.setItem("email", json.email);
-
-        this.$router.push("mainpage");
+        if (typeof Storage !== "undefined") {
+          sessionStorage.setItem("username", json.username);
+          sessionStorage.setItem("userID", json.id);
+          sessionStorage.setItem("email", json.email);
+          this.$router.push("mainpage");
+        }
       } else {
-        alert("Please Check your information again.");
+        alert("Please Check your Information.");
       }
     }
   }

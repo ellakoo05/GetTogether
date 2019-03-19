@@ -1,36 +1,42 @@
 <template>
-  <div id="Dashboard">
+  <div id="dashboard_page">
     <div id="banner">
-      <div class="col-sm-2" style="padding:10px; margin:auto">
+      <div class="col-md-2" style="padding:10px; margin:auto">
         <img src="../assets/title.png" width="100%">
       </div>
-      <button id="goBack" @click="goBack">MAIN PAGE</button>
+      <button class="goBack" @click="goBack">&lt; MAIN PAGE</button>
     </div>
-
-    <h1 id="yourEvents">Your Events</h1>
 
     <div class="container">
       <div class="row">
-        <div
-          @click="goToEvent(item.eventCode)"
-          class="eventImage col-lg-2 eventInfoTitle"
-          v-for="item in dashboardList"
-        >
-          {{item.eventname}}
-          <div @click="goToEvent(item.eventCode)" class="eventDetail">
-            {{item.eventname}}
-            <br>
-            {{item.eventlocation}}
-            <br>
-            {{item.eventdate}}
-            <br>
-            {{item.eventtime}}
-            <br>
-            <button @click="goToEvent(item.eventCode)" class="eventSelect-btn">Go to Event</button>
+        <div class="col-lg-12">
+          <h1 id="yourEvents">your events</h1>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div
+              @click="goToEvent(item.eventCode)"
+              class="eventImage col-lg-2 eventInfoTitle"
+              v-for="item in dashboardList"
+            >
+              {{item.eventname}}
+              <div @click="goToEvent(item.eventCode)" class="eventDetail">
+                {{item.eventname}}
+                <br>
+                {{item.eventlocation}}
+                <br>
+                {{item.eventdate}}
+                <br>
+                {{item.eventtime}}
+                <br>
+                <button @click="goToEvent(item.eventCode)" class="eventSelect-btn">Go to Event</button>
+              </div>
+            </div>
           </div>
+          <button @click="createNew" class="createNew-btn">Create New</button>
         </div>
       </div>
-      <button @click="createNew" class="createNew-btn">Create New</button>
     </div>
   </div>
 </template>
