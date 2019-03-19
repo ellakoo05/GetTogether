@@ -1,5 +1,6 @@
 <template>
-  <div id="start_page" class="wrapper d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <div id="start_page">
+    <div class="wrapper d-flex w-100 h-100 p-3 mx-auto flex-column">
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <div class="row">
         <div class="col-lg-12 m-auto logotitle">
@@ -35,6 +36,7 @@
       </div>
     </div>
     <div class="col-lg-12" id="footer">GetTogether &copy; 2019</div>
+  </div>
   </div>
 </template>
 
