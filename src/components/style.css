@@ -272,8 +272,9 @@
 }
 
 .eventImage {
-  background-image: url("../assets/eventImg.jpeg");
-  background-position: top;
+  background-image: url("../assets/thumbnailBG.jpg");
+  background-position: center;
+  background-size: 500px;
   display: inline-block;
   height: 200px;
   margin-left: 10px;
