@@ -50,15 +50,15 @@
             <div class="col-lg-12">
             <input
               v-model="msg"
-              class="col-lg-12"
+              class="col-lg-11"
               id="type"
               type="text"
               placeholder="Type your message here and press enter..."
               @keyup.enter="sendMessage"
             >
             </div>
-                          </div>
-          </div>
+             </div>
+                                    </div>
         </div>
         </div>
 

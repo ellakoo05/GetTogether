@@ -1,16 +1,6 @@
 <template>
   <div id="eventform_page">
-    <div class="preloader">
-  <span class="preloader-inner">
-    <span class="preloader-inner-gap"></span>
-    <span class="preloader-inner-left">
-        <span class="preloader-inner-half-circle"></span>
-    </span>
-    <span class="preloader-inner-right">
-        <span class="preloader-inner-half-circle"></span>
-    </span>
-  </span>
-</div>
+    
     <div id="EventLeftSide">
       <div class="container eventCreate">
         <h2>Create</h2>

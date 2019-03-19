@@ -117,6 +117,11 @@
 
 /* ------------- GetTogether Event Form Page ------------- */
 
+.eventsLists {
+  height: 400px;
+  width: 100vw;
+  overflow: scroll;
+}
 
 #EventRightSide {
   font-family: 'Nunito';
@@ -170,19 +175,6 @@
   padding: 5px;
   text-align: center;
 }
-
-/* #goDashboard {
-  width: 120px;
-  height: 30px;
-  background-color: lightsteelblue;
-  position: absolute;
-  color: white;
-  border: none;
-  border-radius: 35px;
-  left: 50px;
-  padding: 5px;
-  text-align: center;
-} */
 
 #editForm .col-lg-5 {
   margin: auto;
@@ -274,7 +266,7 @@
 .eventImage {
   background-image: url("../assets/thumbnailBG.jpg");
   background-position: center;
-  background-size: 500px;
+  background-size: cover;
   display: inline-block;
   height: 200px;
   margin-left: 10px;
@@ -416,13 +408,6 @@
   position: absolute;
 }
 
-#eventInfo {
-  font-size: 26px;
-  margin: 50px;
-  margin-top: 20px;
-  text-align: left;
-}
-
 #map {
   width: 450px;
   height: 250px;
@@ -453,7 +438,7 @@
   margin: 10px;
 }
 
-#eventRight {
+#taskListRight {
   overflow: scroll;
   font-family: 'Nunito';
   background-color: rgba(0, 0, 0, 0.1);
@@ -464,6 +449,7 @@
   color: dimgray;
   right: 0;
   top: 0;
+  bottom: 0px;
 }
 
 #addingTask {
@@ -524,6 +510,24 @@
   background-color: white;
 }
 
+.backtoLogin {
+  font-size: 15px;
+  font-family: Nunito;
+  border-radius: 50px;
+  width: 200px;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: 2px solid lightsteelblue;
+  margin: auto;
+  margin-bottom: 40px;
+  color: dimgray;
+  background-color: white;
+}
+
 .partyButton {
   font-size: 15px;
   font-family: Nunito;
@@ -543,7 +547,8 @@
 
 .partyButton:hover,
 .signupButton:hover,
-.joinButton:hover {
+.joinButton:hover,
+.backtoLogin:hover {
   background-color: lightsteelblue;
   color: white;
   border: solid 2px lightsteelblue;
@@ -573,9 +578,9 @@
   color: dimgray;
 }
 
-body {}
-
-
+#yourEvents {
+  margin-top: 50px;
+}
 
 #anim {
   max-width: 800px;
@@ -586,8 +591,12 @@ body {}
 #login,
 #getStarted,
 #event,
-#register,
-#start_page {
+#signup,
+#start_page,
+#eventdetails_page,
+#dashboard_page,
+#eventform_page
+ {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -818,7 +827,7 @@ a {
 
 #banner {
   margin: 0;
-  background-color: #38a3ff;
+  background-color: lightblue;
   text-align: center;
   height: auto;
   padding: 10px;
@@ -883,6 +892,7 @@ body {
   width: 50vw;
   height: 100vh;
   text-align: center;
+  overflow: scroll;
 }
 
 
@@ -1157,21 +1167,14 @@ hr {
   border: 1px solid lightgray;
   border-radius: 50px;
   padding: 10px;
-  left: 20px;
-  bottom: 20px;
-  position: absolute;
+  width: 100%;
   font-size: 16px;
+  bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
 }
 
-#eventChat {
-  color: red;
-  width: 50vw;
-  height: 400px;
-  bottom: 0px;
-  position: absolute;
-  border: 2px solid black;
-  z-index: 50000;
-}
 
 #textSend-btn {
   background-image: url("../assets/forward.png");
@@ -1184,33 +1187,48 @@ hr {
   position: absolute;
 }
 
-.chatlog {
-  border-radius: 10px;
-  border: 1px solid blue;
-  width: auto;
+.chatBox {
+  font-size: 26px;
+  margin: 50px;
+  text-align: left;
+  height: 300px;
+  overflow: scroll;
+}
+
+#eventInfo {
+  font-size: 26px;
+  margin: 50px;
+  margin-top: 20px;
+  text-align: left;
+  height: 300px;
 }
 
 .msg_container {
-  background-color: #56bfb8;
+  background-color: lightblue;
   border-radius: 25px;
   margin-left: auto;
   margin-right: 5px;
   margin-bottom: 10px;
+  margin-top: 20px;
   padding: 5px;
   position: relative;
   text-align: left;
   width: 250px;
+  font-size: 16px;
 }
 
 .msg_container2 {
+  background-color: lightgray;
   border-radius: 25px;
-  background-color: red;
-  padding: 10px;
-  position: relative;
+  margin-right: auto;
+  margin-left: 5px;
   margin-bottom: 10px;
-  width: 250px;
+  margin-top: 20px;
+  padding: 5px;
+  position: relative;
   text-align: left;
-  float: left;
+  width: 250px;
+  font-size: 16px;
 }
 
 
@@ -1272,23 +1290,22 @@ hr {
   font-size: 16px;
 }
 
-#chatBox {
+#leftBox {
   border: 3px solid lightsteelblue;
   border-radius: 40px;
-  padding: 50px;
   margin: 10px;
   height: 700px;
-  width: 49%;
-  position: fixed;
+  width: 98%;
   bottom: 0;
 }
 
 .chatContain {
   overflow: scroll;
   width: 100%;
-  height: 550px;
+  height: 320px;
   display: block;
   border-radius: 50px;
+  bottom: 30px;
 }
 
 .goEdit-btn {
@@ -1319,19 +1336,25 @@ hr {
   text-align: center;
 }
 
-#goBack {
+.goBack {
   width: 120px;
   height: 30px;
   background-color: lightsteelblue;
   position: absolute;
   left: 50px;
-  top: 20px;
+  top: 35px;
   border-radius: 35px;
   color: white;
   border: none;
   padding: 5px;
   text-align: center;
 }
+
+.goBack:hover {
+  background-color:  #b784a7;
+  width: 130px;
+}
+
 
 .goDelete-btn,
 .goRefresh-btn {

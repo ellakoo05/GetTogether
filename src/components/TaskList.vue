@@ -1,6 +1,6 @@
 <template>
   <div id="tasklist">
-    <div id="eventRight">
+    <div id="taskListRight">
       <div class="displayItems" v-if="isTasksNotEmpty" v-for="item in newTasks" v-bind:key="item">
         <div class="listItemsForUsers">
           {{item.tasks}}
